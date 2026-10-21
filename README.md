@@ -286,6 +286,10 @@ code are derived from DC3DPAFEM and from the MFEM library, both distributed
 under the BSD-3 license. The original authors are acknowledged in the source
 headers.
 
+The reference outputs in `examples/ex3/pyGIMLi_refer` were generated with
+pyGIMLi (Apache-2.0). The mining-tunnel field data are described by Günther
+(2004) and are included for reproducibility with attribution.
+
 ## Authors
 
 - Lewen Qiu, Research Institute of Exploration and Development, PetroChina
