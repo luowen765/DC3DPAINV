@@ -21,7 +21,8 @@ DC3DPAINV/
 ├── examples/          input files, run scripts, and reference results
 ├── figures/           figures of the accompanying manuscript
 ├── src/               C++ sources
-├── LICENSE            BSD-3 license
+├── LICENSE            BSD-3-Clause license
+├── NOTICE             third-party and derived-code notices
 └── README.md          this file
 ```
 
@@ -281,10 +282,9 @@ run.
 
 ## License
 
-DC3DPAINV is released under the BSD-3 license; see `LICENSE`. Portions of the
-code are derived from DC3DPAFEM and from the MFEM library, both distributed
-under the BSD-3 license. The original authors are acknowledged in the source
-headers.
+DC3DPAINV is released under the BSD-3-Clause license; see `LICENSE`. Third-party
+and derived-code notices are provided in `NOTICE`; the original authors are also
+acknowledged in the source headers.
 
 The reference outputs in `examples/ex3/pyGIMLi_refer` were generated with
 pyGIMLi (Apache-2.0). The mining-tunnel field data are described by Günther
