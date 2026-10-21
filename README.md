@@ -12,7 +12,7 @@ gradient requires additional parameters.
 The accompanying manuscript describes the method and the three numerical
 examples. If you use this code, please cite the paper.
 
-The code is hosted at <https://github.com/luowen7592/DC3DPAINV>.
+The code is hosted at <https://github.com/luowen765/DC3DPAINV>.
 
 ## Repository layout
 
