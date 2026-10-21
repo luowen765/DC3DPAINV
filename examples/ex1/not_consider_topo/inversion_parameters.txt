@@ -42,7 +42,7 @@ forward_inputs/inv_flat.msh  # Initial forward mesh file
 0                            # Forward AMR criterion: 0 = ratio, 1 = relative error
 0.01                         # Ratio or threshold used by the forward AMR criterion
 5000000                      # Maximum number of forward degrees of freedom
-amg                          # Linear solver: amg or ilu
+amg                          # Linear solver: amg, ilu, or mumps
 FindPoints                   # Point-location method (currently only FindPoints)
 500                          # Maximum PCG iterations for forward and adjoint solves
 1e-7                         # PCG tolerance for primal solves

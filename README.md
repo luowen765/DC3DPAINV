@@ -40,23 +40,28 @@ configuration is:
 | hypre | 2.19.0 | BoomerAMG preconditioner |
 | METIS | 5.1.0 | mesh partitioning |
 | Eigen | 3.4.0 | dense/sparse linear algebra and PARDISO interface |
+| MUMPS | 5.3.5 | direct solver (`linear_solver = mumps`) |
 | GNU make | 4.x | build |
 
-MFEM must provide MPI, METIS 5, and hypre support; GN additionally requires
-the MKL CPARDISO interface. A typical MFEM configuration is:
+MFEM must provide MPI, METIS 5, hypre, and MUMPS support. The MUMPS interface
+is compiled unconditionally, so `MFEM_USE_MUMPS=YES` is required even when
+`linear_solver = amg`; GN additionally requires the MKL CPARDISO interface.
+The tested build enables all of these:
 
 ```text
 MFEM_USE_MPI          = YES
 MFEM_USE_METIS_5      = YES
+MFEM_USE_MUMPS        = YES
 MFEM_USE_MKL_CPARDISO = YES
 ```
 
-MFEM, hypre, METIS, and Eigen are available at:
+MFEM, hypre, METIS, Eigen, and MUMPS are available at:
 
 - <https://github.com/mfem/mfem>
 - <https://github.com/hypre-space/hypre>
 - <https://github.com/KarypisLab/METIS>
 - <https://gitlab.com/libeigen/eigen>
+- <http://mumps.enseeiht.fr/>
 
 GSLIB is not required. The input reader currently accepts only
 `find_points_by = FindPoints`.
@@ -200,7 +205,7 @@ line. Blank lines and text after `#` are ignored. The entry order is fixed.
 | 35 | `amr_type` | 0 = ratio, 1 = relative error |
 | 36 | `amr_ratio` | ratio or threshold for the forward AMR criterion |
 | 37 | `max_dofs` | maximum number of forward degrees of freedom |
-| 38 | `linear_solver` | `amg` or `ilu` |
+| 38 | `linear_solver` | `amg`, `ilu`, or `mumps` |
 | 39 | `find_points_by` | point-location method; currently only `FindPoints` |
 | 40 | `pcg_maxit` | maximum PCG iterations for forward and adjoint solves |
 | 41 | `pcg_primal_tol` | PCG tolerance for primal solves |

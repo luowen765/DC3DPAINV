@@ -251,7 +251,8 @@ void ParaHandler::read_model_info(char *model_file) {
   ss << para_str_vec[37];
   ss >> linear_solver;
   ss.clear();
-  myassert(linear_solver == "amg" || linear_solver == "ilu");
+  myassert(linear_solver == "amg" || linear_solver == "ilu" ||
+           linear_solver == "mumps");
 
   ss << para_str_vec[38];
   ss >> find_points_by;

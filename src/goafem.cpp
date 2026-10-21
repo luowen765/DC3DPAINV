@@ -196,6 +196,7 @@ void GOAFEM::one_forward_iteration(
   }
 
   std::string linear_solver = para_handler.linear_solver;
+  std::shared_ptr<MUMPSSolver> mumps;
 
   if (world_rank == 0) {
     std::cout << "  Solving the primal problem ..." << std::endl;
@@ -214,16 +215,39 @@ void GOAFEM::one_forward_iteration(
 
   double t3 = MPI_Wtime();
 
-  myassert(linear_solver == "amg" || linear_solver == "ilu");
-  for (int i = 0; i < F.size(); i++) {
+  if (linear_solver == "mumps") {
 
-    solve_with_pcg(A, U[i], F[i], linear_solver, para_handler.pcg_maxit,
-                   "primal"
+    mumps.reset(new MUMPSSolver(para_handler.group_comm));
 
-    );
+    mumps->SetPrintLevel(0);
+    mumps->SetMatrixSymType(MUMPSSolver::MatType::SYMMETRIC_POSITIVE_DEFINITE);
+
+    mumps->SetOperator(*A.Ptr());
+
+    tempMemory = GetCurrentMemoryUsage();
+    memoryUsed.push_back(tempMemory);
+
+    for (int i = 0; i < F.size(); i++) {
+
+      mumps->Mult(F[i], U[i]);
+    }
+    if (if_solve_dual) {
+      mumps->Mult(L, W);
+    }
   }
-  if (if_solve_dual) {
-    solve_with_pcg(A, W, L, linear_solver, para_handler.pcg_maxit, "dual");
+
+  else {
+    myassert(linear_solver == "amg" || linear_solver == "ilu");
+    for (int i = 0; i < F.size(); i++) {
+
+      solve_with_pcg(A, U[i], F[i], linear_solver, para_handler.pcg_maxit,
+                     "primal"
+
+      );
+    }
+    if (if_solve_dual) {
+      solve_with_pcg(A, W, L, linear_solver, para_handler.pcg_maxit, "dual");
+    }
   }
 
   for (int i = 0; i < F.size(); i++) {
@@ -353,11 +377,20 @@ void GOAFEM::one_forward_iteration(
       a->FormLinearSystem(ess_tdof_list, *(xgf[i]), *(y[i]), A, X[i], Y[i]);
     }
 
-    for (int i = 0; i < N_adjoint; i++) {
+    if (linear_solver == "mumps") {
+      myassert(mumps != NULL);
+      for (int i = 0; i < N_adjoint; i++) {
+        mumps->Mult(Y[i], X[i]);
+      }
+    }
 
-      solve_with_pcg(A, X[i], Y[i], linear_solver, para_handler.pcg_maxit,
-                     "adjoint");
+    else {
+      for (int i = 0; i < N_adjoint; i++) {
 
+        solve_with_pcg(A, X[i], Y[i], linear_solver, para_handler.pcg_maxit,
+                       "adjoint");
+
+      }
     }
 
     for (int i = 0; i < N_adjoint; i++) {
