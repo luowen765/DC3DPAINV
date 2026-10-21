@@ -1,0 +1,52 @@
+# DC3DPAINV inversion control file
+# Exactly 45 non-comment entries are required. Blank lines and text after #
+# are ignored. The entry order is fixed; see README.md for details.
+#
+# --- Inversion control ---
+0                            # Model parameterization: 0 = isotropic, 1 = VTI, 2 = triaxial
+101                          # Maximum number of inversion iterations
+8                            # Number of correction pairs stored by L-BFGS
+4                            # Maximum number of trial steps in the inexact line search
+observation_data.txt         # Observation data file
+1                            # Data type: 0 = potential difference (dU/I), 1 = apparent resistivity
+1.01                         # Stopping threshold for the weighted RMS misfit
+1.0e-11                      # Absolute noise floor added to the data errors
+1000                         # Initial regularization parameter (lambda)
+0.5                          # Lambda attenuation factor
+0.01                         # Reduce lambda when the relative misfit improvement falls below this value
+0.01                         # Minimum lambda
+3                            # Minimum number of iterations at each lambda
+0.0005                       # Lower bound of conductivity (S/m)
+1.0                          # Upper bound of conductivity (S/m)
+1.0                          # Exponent n of the bounded model transformation
+200                          # Maximum PCG iterations for the GN system
+1.0e-3                       # PCG tolerance for the GN system
+lbfgs                        # Optimization algorithm: gn or lbfgs
+# --- Inversion-mesh adaptivity ---
+0.005                        # Refine the inversion mesh when the relative misfit drop exceeds this value
+0.001                        # Refine the inversion mesh when the relative misfit drop is below this value
+1                            # Local refinement levels around electrodes on the initial inversion mesh
+4                            # Maximum number of inversion-mesh refinements (0 = fixed mesh)
+5                            # Minimum number of iterations between inversion-mesh refinements
+1                            # Inversion-mesh indicator: 0 = model gradient, 1 = JTV, 2 = both
+0.01                         # Refinement fraction for indicator 0
+0.003                        # Refinement fraction for indicator 1
+0                            # Reserved depth threshold (currently unused; set to 0)
+# --- Forward model, solver, and parallelism ---
+forward_inputs/sigma.file    # Initial and reference conductivity model file
+forward_inputs/inv_37708.msh # Initial forward mesh file
+0.01                         # Refine the forward mesh when the relative misfit drop exceeds this value
+0.002                        # Refine the forward mesh when the relative misfit drop is below this value
+0                            # Local refinement levels around measurement electrodes on the forward mesh
+0                            # Maximum number of forward-mesh AMR iterations (0 = disabled)
+0                            # Forward AMR criterion: 0 = ratio, 1 = relative error
+0.01                         # Ratio or threshold used by the forward AMR criterion
+5000000                      # Maximum number of forward degrees of freedom
+mumps                        # Linear solver: amg, ilu, or mumps
+FindPoints                   # Point-location method (currently only FindPoints)
+500                          # Maximum PCG iterations for forward and adjoint solves
+1e-7                         # PCG tolerance for primal solves
+1e-4                         # PCG tolerance for dual (adjoint) solves
+jn                           # Error estimator: jn or zz_patch
+2                            # Quadrature order: 1, 2, or 3
+1                            # Number of source groups for source-level parallelism (1 = domain decomposition only)

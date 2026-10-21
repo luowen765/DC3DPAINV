@@ -1,0 +1,738 @@
+print input parameters
+0                          
+101                       
+8                          
+4                          
+observation_data.txt           
+1       
+1.01                        
+1.0e-11                    
+1000                        
+0.5                        
+0.01                      
+0.01                     
+3                         
+0.0005                     
+1.0                          
+1.0                         
+200    
+1.0e-3   
+lbfgs   
+0.005            
+0.001            
+1               
+0  
+5  
+1  
+0.01  
+0.003  
+0  
+forward_inputs/sigma.file       
+forward_inputs/inv-226494.msh          
+0.01            
+0.002            
+0                                     
+0                                     
+0                                    
+0.01                                
+5000000                          
+mumps                          
+FindPoints  
+500             
+1e-7   
+1e-4   
+zz_patch         
+1  
+1  
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+  total data: 18556  valid_data: 18556
+    源的个数： 24
+    测量电极点的个数：1200
+    测点的个数：2326
+    测量源的个数: 16
+  The number of the cells in the initial mesh is: 1343671
+  The number of the nodes in the initial mesh is: 226494
+  Execute LBFGS algorithm...
+
+==========inversion iter: 1
+Initializing the inversion parameters:
+The number of refining electrodes locally for the inv mesh: 1
+  The number of the cells in the locally refined inv mesh is: 1491838
+  The number of the nodes in the the locally refined inv mesh is: 257417
+  The number of inversion unknowns is: 1323057
+  The number of inversion elements is: 1323057
+  Solving the primal problem ...
+    Assemble the primal problem time: 3.98844
+    Solve the primal problem time: 6.29353
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0208769
+    Solve adjoint time: 1.15074
+    Solving the JTV time: 2.20451
+  Forward modeling iteration # and time consumed: 1 : 16.6381 seconds.
+  Error of data fitting: 3.09253
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.0400361
+  The runtime for this iteration is: 0 hr 0 min 32.6748 sec
+
+==========inversion iter: 2
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.26783
+    Solve the primal problem time: 5.79792
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0205441
+    Solve adjoint time: 1.02785
+    Solving the JTV time: 2.18066
+  Forward modeling iteration # and time consumed: 2 : 13.9452 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 3.00072
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.0630677
+  The runtime for this iteration is: 0 hr 0 min 19.6594 sec
+
+==========inversion iter: 3
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.29612
+    Solve the primal problem time: 5.98161
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0204609
+    Solve adjoint time: 0.9379
+    Solving the JTV time: 2.17303
+  Forward modeling iteration # and time consumed: 3 : 14.0521 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.93124
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.0783639
+  The runtime for this iteration is: 0 hr 0 min 19.7438 sec
+
+==========inversion iter: 4
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.17071
+    Solve the primal problem time: 7.01899
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0194883
+    Solve adjoint time: 1.49424
+    Solving the JTV time: 2.19237
+  Forward modeling iteration # and time consumed: 4 : 15.545 seconds.
+    The condition of sufficient descent is not satisfied, perform zoom search...
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.12363
+    Solve the primal problem time: 6.36001
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0209321
+    Solve adjoint time: 1.24353
+    Solving the JTV time: 2.17548
+  Forward modeling iteration # and time consumed: 5 : 14.5362 seconds.
+    The zoom search is successful, the step value is: 0.313318
+  Error of data fitting: 1.7555
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.0928151
+  The runtime for this iteration is: 0 hr 0 min 36.0468 sec
+
+==========inversion iter: 5
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.1398
+    Solve the primal problem time: 6.09614
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0189597
+    Solve adjoint time: 1.21714
+    Solving the JTV time: 2.1834
+  Forward modeling iteration # and time consumed: 6 : 14.3092 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.67785
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.0951068
+  The runtime for this iteration is: 0 hr 0 min 19.8541 sec
+
+==========inversion iter: 6
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.26227
+    Solve the primal problem time: 5.88207
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0195862
+    Solve adjoint time: 0.931418
+    Solving the JTV time: 2.17828
+  Forward modeling iteration # and time consumed: 7 : 13.8891 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.51789
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.110106
+  The runtime for this iteration is: 0 hr 0 min 19.5003 sec
+
+==========inversion iter: 7
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.14647
+    Solve the primal problem time: 6.31369
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0186999
+    Solve adjoint time: 1.3778
+    Solving the JTV time: 2.17197
+  Forward modeling iteration # and time consumed: 8 : 14.653 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.46442
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.113778
+  The runtime for this iteration is: 0 hr 0 min 20.3601 sec
+
+==========inversion iter: 8
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13532
+    Solve the primal problem time: 6.00358
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0182613
+    Solve adjoint time: 0.979987
+    Solving the JTV time: 2.17729
+  Forward modeling iteration # and time consumed: 9 : 13.9562 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.45381
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.130089
+  The runtime for this iteration is: 0 hr 0 min 19.5504 sec
+
+==========inversion iter: 9
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.42901
+    Solve the primal problem time: 6.33738
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.019779
+    Solve adjoint time: 1.23274
+    Solving the JTV time: 2.17457
+  Forward modeling iteration # and time consumed: 10 : 14.808 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.41945
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.133407
+  The runtime for this iteration is: 0 hr 0 min 20.3385 sec
+
+==========inversion iter: 10
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13844
+    Solve the primal problem time: 6.4134
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0199514
+    Solve adjoint time: 1.45227
+    Solving the JTV time: 2.16186
+  Forward modeling iteration # and time consumed: 11 : 14.8155 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.39608
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.181988
+  The runtime for this iteration is: 0 hr 0 min 20.1805 sec
+
+==========inversion iter: 11
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13646
+    Solve the primal problem time: 5.75634
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0181473
+    Solve adjoint time: 0.898113
+    Solving the JTV time: 2.18913
+  Forward modeling iteration # and time consumed: 12 : 13.6243 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.34412
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.154592
+  The runtime for this iteration is: 0 hr 0 min 19.0138 sec
+
+==========inversion iter: 12
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.17229
+    Solve the primal problem time: 5.71379
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0196243
+    Solve adjoint time: 0.912255
+    Solving the JTV time: 2.17255
+  Forward modeling iteration # and time consumed: 13 : 13.6084 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.33187
+  The value of the regularization parameter: 1000
+    Run update_model_direction time: 0.175888
+  The runtime for this iteration is: 0 hr 0 min 19.0474 sec
+
+==========inversion iter: 13
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.12949
+    Solve the primal problem time: 5.77652
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0191672
+    Solve adjoint time: 0.913538
+    Solving the JTV time: 2.17212
+  Forward modeling iteration # and time consumed: 14 : 13.6395 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.3341
+  The value of the regularization parameter: 500
+    Run update_model_direction time: 0.168275
+  The runtime for this iteration is: 0 hr 0 min 19.0682 sec
+
+==========inversion iter: 14
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13004
+    Solve the primal problem time: 5.71676
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0193387
+    Solve adjoint time: 0.908417
+    Solving the JTV time: 2.17699
+  Forward modeling iteration # and time consumed: 15 : 13.5692 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.30957
+  The value of the regularization parameter: 500
+    Run update_model_direction time: 0.154728
+  The runtime for this iteration is: 0 hr 0 min 18.9792 sec
+
+==========inversion iter: 15
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.15392
+    Solve the primal problem time: 5.76406
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0195427
+    Solve adjoint time: 0.907274
+    Solving the JTV time: 2.17343
+  Forward modeling iteration # and time consumed: 16 : 13.6368 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.28617
+  The value of the regularization parameter: 500
+    Run update_model_direction time: 0.175959
+  The runtime for this iteration is: 0 hr 0 min 19.1382 sec
+
+==========inversion iter: 16
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.14173
+    Solve the primal problem time: 5.79374
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0191075
+    Solve adjoint time: 0.897467
+    Solving the JTV time: 2.20723
+  Forward modeling iteration # and time consumed: 17 : 13.6937 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.28166
+  The value of the regularization parameter: 500
+    Run update_model_direction time: 0.167726
+  The runtime for this iteration is: 0 hr 0 min 19.1768 sec
+
+==========inversion iter: 17
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.14777
+    Solve the primal problem time: 5.70077
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0194775
+    Solve adjoint time: 0.906352
+    Solving the JTV time: 2.17606
+  Forward modeling iteration # and time consumed: 18 : 13.5715 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.27772
+  The value of the regularization parameter: 250
+    Run update_model_direction time: 0.154345
+  The runtime for this iteration is: 0 hr 0 min 19.0473 sec
+
+==========inversion iter: 18
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.15966
+    Solve the primal problem time: 5.81616
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0195338
+    Solve adjoint time: 0.941335
+    Solving the JTV time: 2.17722
+  Forward modeling iteration # and time consumed: 19 : 13.7489 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.25802
+  The value of the regularization parameter: 250
+    Run update_model_direction time: 0.17591
+  The runtime for this iteration is: 0 hr 0 min 19.2668 sec
+
+==========inversion iter: 19
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.15136
+    Solve the primal problem time: 5.79861
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0184591
+    Solve adjoint time: 0.918087
+    Solving the JTV time: 2.16997
+  Forward modeling iteration # and time consumed: 20 : 13.6842 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.24049
+  The value of the regularization parameter: 250
+    Run update_model_direction time: 0.167819
+  The runtime for this iteration is: 0 hr 0 min 19.1668 sec
+
+==========inversion iter: 20
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.14486
+    Solve the primal problem time: 5.74161
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0186964
+    Solve adjoint time: 0.921671
+    Solving the JTV time: 2.16791
+  Forward modeling iteration # and time consumed: 21 : 13.6203 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.21102
+  The value of the regularization parameter: 250
+    Run update_model_direction time: 0.154967
+  The runtime for this iteration is: 0 hr 0 min 19.1068 sec
+
+==========inversion iter: 21
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.21623
+    Solve the primal problem time: 5.78986
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0190024
+    Solve adjoint time: 0.898695
+    Solving the JTV time: 2.1718
+  Forward modeling iteration # and time consumed: 22 : 13.7101 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.20118
+  The value of the regularization parameter: 250
+    Run update_model_direction time: 0.175921
+  The runtime for this iteration is: 0 hr 0 min 19.2053 sec
+
+==========inversion iter: 22
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.14088
+    Solve the primal problem time: 5.71521
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0192034
+    Solve adjoint time: 0.922171
+    Solving the JTV time: 2.17975
+  Forward modeling iteration # and time consumed: 23 : 13.6118 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.199
+  The value of the regularization parameter: 125
+    Run update_model_direction time: 0.167886
+  The runtime for this iteration is: 0 hr 0 min 19.0611 sec
+
+==========inversion iter: 23
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13931
+    Solve the primal problem time: 5.73028
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0193749
+    Solve adjoint time: 0.910743
+    Solving the JTV time: 2.17099
+  Forward modeling iteration # and time consumed: 24 : 13.5923 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.18178
+  The value of the regularization parameter: 125
+    Run update_model_direction time: 0.154715
+  The runtime for this iteration is: 0 hr 0 min 19.0634 sec
+
+==========inversion iter: 24
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.17129
+    Solve the primal problem time: 5.74423
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.018314
+    Solve adjoint time: 0.890943
+    Solving the JTV time: 2.17763
+  Forward modeling iteration # and time consumed: 25 : 13.642 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.16158
+  The value of the regularization parameter: 125
+    Run update_model_direction time: 0.176068
+  The runtime for this iteration is: 0 hr 0 min 19.169 sec
+
+==========inversion iter: 25
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.15393
+ On return from DMUMPS, INFOG(1)=              -9
+ On return from DMUMPS, INFOG(2)=           72322
+    Solve the primal problem time: 6.69043
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0201245
+    Solve adjoint time: 0.921716
+    Solving the JTV time: 2.17355
+  Forward modeling iteration # and time consumed: 26 : 14.5982 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.14908
+  The value of the regularization parameter: 125
+    Run update_model_direction time: 0.168006
+  The runtime for this iteration is: 0 hr 0 min 20.1154 sec
+
+==========inversion iter: 26
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.15562
+    Solve the primal problem time: 5.99698
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0193972
+    Solve adjoint time: 1.11975
+    Solving the JTV time: 2.18113
+  Forward modeling iteration # and time consumed: 27 : 14.0898 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.14423
+  The value of the regularization parameter: 62.5
+    Run update_model_direction time: 0.154579
+  The runtime for this iteration is: 0 hr 0 min 19.5854 sec
+
+==========inversion iter: 27
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.17246
+    Solve the primal problem time: 5.84924
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0192767
+    Solve adjoint time: 0.935777
+    Solving the JTV time: 2.17411
+  Forward modeling iteration # and time consumed: 28 : 13.7777 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.12545
+  The value of the regularization parameter: 62.5
+    Run update_model_direction time: 0.176383
+  The runtime for this iteration is: 0 hr 0 min 19.3865 sec
+
+==========inversion iter: 28
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.14018
+    Solve the primal problem time: 5.91001
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.018629
+    Solve adjoint time: 0.909509
+    Solving the JTV time: 2.18928
+  Forward modeling iteration # and time consumed: 29 : 13.8031 seconds.
+    The condition of sufficient descent is not satisfied, perform zoom search...
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13211
+    Solve the primal problem time: 5.64275
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0187277
+    Solve adjoint time: 0.905429
+    Solving the JTV time: 2.16034
+  Forward modeling iteration # and time consumed: 30 : 13.4716 seconds.
+    The zoom search is successful, the step value is: 0.353706
+  Error of data fitting: 1.11793
+  The value of the regularization parameter: 62.5
+    Run update_model_direction time: 0.167911
+  The runtime for this iteration is: 0 hr 0 min 33.1936 sec
+
+==========inversion iter: 29
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.14337
+    Solve the primal problem time: 5.69443
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.019663
+    Solve adjoint time: 0.899005
+    Solving the JTV time: 2.17386
+  Forward modeling iteration # and time consumed: 31 : 13.5617 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.10642
+  The value of the regularization parameter: 62.5
+    Run update_model_direction time: 0.17596
+  The runtime for this iteration is: 0 hr 0 min 19.1441 sec
+
+==========inversion iter: 30
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.18282
+    Solve the primal problem time: 5.67757
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0197109
+    Solve adjoint time: 0.897725
+    Solving the JTV time: 2.17404
+  Forward modeling iteration # and time consumed: 32 : 13.5742 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.08879
+  The value of the regularization parameter: 62.5
+    Run update_model_direction time: 0.167961
+  The runtime for this iteration is: 0 hr 0 min 19.1235 sec
+
+==========inversion iter: 31
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.1425
+    Solve the primal problem time: 5.73327
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0187844
+    Solve adjoint time: 0.938723
+    Solving the JTV time: 2.17895
+  Forward modeling iteration # and time consumed: 33 : 13.6409 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.08004
+  The value of the regularization parameter: 62.5
+    Run update_model_direction time: 0.154505
+  The runtime for this iteration is: 0 hr 0 min 19.1665 sec
+
+==========inversion iter: 32
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.1502
+    Solve the primal problem time: 5.75076
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.019298
+    Solve adjoint time: 0.905381
+    Solving the JTV time: 2.17454
+  Forward modeling iteration # and time consumed: 34 : 13.6262 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.07664
+  The value of the regularization parameter: 31.25
+    Run update_model_direction time: 0.175833
+  The runtime for this iteration is: 0 hr 0 min 19.1883 sec
+
+==========inversion iter: 33
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13565
+    Solve the primal problem time: 5.70995
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0194005
+    Solve adjoint time: 0.94506
+    Solving the JTV time: 2.1796
+  Forward modeling iteration # and time consumed: 35 : 13.6199 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.06601
+  The value of the regularization parameter: 31.25
+    Run update_model_direction time: 0.167741
+  The runtime for this iteration is: 0 hr 0 min 19.1234 sec
+
+==========inversion iter: 34
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13519
+    Solve the primal problem time: 5.76214
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0186097
+    Solve adjoint time: 0.906896
+    Solving the JTV time: 2.1696
+  Forward modeling iteration # and time consumed: 36 : 13.6082 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.05388
+  The value of the regularization parameter: 31.25
+    Run update_model_direction time: 0.154481
+  The runtime for this iteration is: 0 hr 0 min 19.156 sec
+
+==========inversion iter: 35
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.13675
+    Solve the primal problem time: 5.75739
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0194146
+    Solve adjoint time: 0.912245
+    Solving the JTV time: 2.16492
+  Forward modeling iteration # and time consumed: 37 : 13.6223 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.03748
+  The value of the regularization parameter: 31.25
+    Run update_model_direction time: 0.176027
+  The runtime for this iteration is: 0 hr 0 min 19.1896 sec
+
+==========inversion iter: 36
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.19593
+    Solve the primal problem time: 5.7603
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0186893
+    Solve adjoint time: 0.90437
+    Solving the JTV time: 2.17286
+  Forward modeling iteration # and time consumed: 38 : 13.6873 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.02044
+  The value of the regularization parameter: 31.25
+    Run update_model_direction time: 0.167841
+  The runtime for this iteration is: 0 hr 0 min 19.2132 sec
+
+==========inversion iter: 37
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.15476
+    Solve the primal problem time: 5.82662
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.0195389
+    Solve adjoint time: 0.910107
+    Solving the JTV time: 2.28562
+  Forward modeling iteration # and time consumed: 39 : 13.8313 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.0149
+  The value of the regularization parameter: 31.25
+    Run update_model_direction time: 0.154531
+  The runtime for this iteration is: 0 hr 0 min 20.3211 sec
+
+==========inversion iter: 38
+  Solving the primal problem ...
+    Assemble the primal problem time: 4.18816
+    Solve the primal problem time: 5.7089
+    The number of the forward unknowns: 17237
+  And solving the adjoint problem ...
+    Assemble adjoint time: 0.019508
+    Solve adjoint time: 0.915952
+    Solving the JTV time: 2.17301
+  Forward modeling iteration # and time consumed: 40 : 13.6378 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.00951
+  The value of the regularization parameter: 15.625
+  The data misfit reached the pre-set value, stop iteration.
+myid 0 enter into initial memory: 0.0719528
+myid 0 need memory in this code: 2.37922
+myid 1 enter into initial memory: 0.0672264
+myid 1 need memory in this code: 1.44876
+myid 2 enter into initial memory: 0.0672264
+myid 2 need memory in this code: 1.49415
+myid 3 enter into initial memory: 0.0691757
+myid 3 need memory in this code: 1.42985
+myid 4 enter into initial memory: 0.0691528
+myid 4 need memory in this code: 1.39909
+myid 5 enter into initial memory: 0.0672073
+myid 5 need memory in this code: 1.45203
+myid 6 enter into initial memory: 0.0691452
+myid 6 need memory in this code: 1.46452
+myid 7 enter into initial memory: 0.0672112
+myid 7 need memory in this code: 1.46186
+myid 8 enter into initial memory: 0.0485306
+myid 8 need memory in this code: 1.50599
+myid 9 enter into initial memory: 0.0485077
+myid 9 need memory in this code: 1.51204
+myid 10 enter into initial memory: 0.0485611
+myid 10 need memory in this code: 1.44909
+myid 11 enter into initial memory: 0.0485229
+myid 11 need memory in this code: 1.4305
+myid 12 enter into initial memory: 0.048542
+myid 12 need memory in this code: 1.44881
+myid 13 enter into initial memory: 0.0485306
+myid 13 need memory in this code: 1.42713
+myid 14 enter into initial memory: 0.048542
+myid 14 need memory in this code: 1.43925
+myid 15 enter into initial memory: 0.048542
+myid 15 need memory in this code: 1.4167
+The number of cpus is: 16
+The total runtime for this inversion is: 0 hr 13 min 5.70814 sec
+The total runtime for all the forward is: 558.251

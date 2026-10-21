@@ -1,0 +1,369 @@
+print input parameters
+1                          
+101                       
+8                          
+4                          
+observation_data.txt           
+1       
+1.5                        
+0.5                   
+20                        
+0.1                        
+0.01                      
+0.01                     
+2                         
+0.0005                     
+1.0                          
+1.0                         
+200    
+1.0e-1   
+gn   
+0.02            
+0.002            
+0               
+0  
+2  
+1  
+0.01  
+0.002  
+0  
+forward_inputs/sigma.file       
+forward_inputs/3dflat-6606.msh          
+0.2            
+0.002            
+1                                     
+0                                     
+0                                    
+0.01                                
+5000000                          
+amg                          
+FindPoints  
+500             
+1e-7   
+1e-4   
+jn         
+1  
+1  
+  total data: 753  valid_data: 753
+  total data: 753  valid_data: 753
+  total data: 753  valid_data: 753
+  total data: 753  valid_data: 753
+    源的个数： 122
+    测量电极点的个数：122
+    测点的个数：183
+    测量源的个数: 183
+  The number of the cells in the initial mesh is: 37248
+  The number of the nodes in the initial mesh is: 6606
+  Execute Gauss Newton algorithm...
+
+==========inversion iter: 1
+Initializing the inversion parameters:
+  The number of inversion unknowns is: 20492
+  The number of inversion elements is: 10246
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.54369
+    Solve the primal problem time: 0.766433
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 1 : 8.59304 seconds.
+  Error of data fitting: 14.6393
+  The value of the regularization parameter: 20
+  GN_Iter_num: 1, PCG_Iter_num: 0, PCG_Error: 0.369136
+  GN_Iter_num: 1, PCG_Iter_num: 1, PCG_Error: 0.280296
+  GN_Iter_num: 1, PCG_Iter_num: 2, PCG_Error: 0.22291
+  GN_Iter_num: 1, PCG_Iter_num: 3, PCG_Error: 0.180066
+  GN_Iter_num: 1, PCG_Iter_num: 4, PCG_Error: 0.118444
+  GN_Iter_num: 1, PCG_Iter_num: 5, PCG_Error: 0.0879178
+    Run update_model_direction time: 1.26342
+  The runtime for this iteration is: 0 hr 0 min 10.3292 sec
+
+==========inversion iter: 2
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.9372
+    Solve the primal problem time: 3.14451
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 2 : 11.399 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 4.08963
+  The value of the regularization parameter: 20
+  GN_Iter_num: 2, PCG_Iter_num: 0, PCG_Error: 0.593199
+  GN_Iter_num: 2, PCG_Iter_num: 1, PCG_Error: 0.40837
+  GN_Iter_num: 2, PCG_Iter_num: 2, PCG_Error: 0.338929
+  GN_Iter_num: 2, PCG_Iter_num: 3, PCG_Error: 0.299714
+  GN_Iter_num: 2, PCG_Iter_num: 4, PCG_Error: 0.257981
+  GN_Iter_num: 2, PCG_Iter_num: 5, PCG_Error: 0.209795
+  GN_Iter_num: 2, PCG_Iter_num: 6, PCG_Error: 0.179858
+  GN_Iter_num: 2, PCG_Iter_num: 7, PCG_Error: 0.1618
+  GN_Iter_num: 2, PCG_Iter_num: 8, PCG_Error: 0.143774
+  GN_Iter_num: 2, PCG_Iter_num: 9, PCG_Error: 0.125194
+  GN_Iter_num: 2, PCG_Iter_num: 10, PCG_Error: 0.0939815
+    Run update_model_direction time: 2.12309
+  The runtime for this iteration is: 0 hr 0 min 14.0656 sec
+
+==========inversion iter: 3
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.92497
+    Solve the primal problem time: 3.16913
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 3 : 11.3448 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.99253
+  The value of the regularization parameter: 20
+  GN_Iter_num: 3, PCG_Iter_num: 0, PCG_Error: 0.578701
+  GN_Iter_num: 3, PCG_Iter_num: 1, PCG_Error: 0.49241
+  GN_Iter_num: 3, PCG_Iter_num: 2, PCG_Error: 0.438009
+  GN_Iter_num: 3, PCG_Iter_num: 3, PCG_Error: 0.39469
+  GN_Iter_num: 3, PCG_Iter_num: 4, PCG_Error: 0.338529
+  GN_Iter_num: 3, PCG_Iter_num: 5, PCG_Error: 0.325943
+  GN_Iter_num: 3, PCG_Iter_num: 6, PCG_Error: 0.341938
+  GN_Iter_num: 3, PCG_Iter_num: 7, PCG_Error: 0.317685
+  GN_Iter_num: 3, PCG_Iter_num: 8, PCG_Error: 0.277771
+  GN_Iter_num: 3, PCG_Iter_num: 9, PCG_Error: 0.252522
+  GN_Iter_num: 3, PCG_Iter_num: 10, PCG_Error: 0.22134
+  GN_Iter_num: 3, PCG_Iter_num: 11, PCG_Error: 0.165746
+  GN_Iter_num: 3, PCG_Iter_num: 12, PCG_Error: 0.15178
+  GN_Iter_num: 3, PCG_Iter_num: 13, PCG_Error: 0.123803
+  GN_Iter_num: 3, PCG_Iter_num: 14, PCG_Error: 0.110802
+  GN_Iter_num: 3, PCG_Iter_num: 15, PCG_Error: 0.0994559
+    Run update_model_direction time: 3.01682
+  The runtime for this iteration is: 0 hr 0 min 14.8788 sec
+
+==========inversion iter: 4
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.9469
+    Solve the primal problem time: 3.14372
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 4 : 11.4002 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.73161
+  The value of the regularization parameter: 20
+  GN_Iter_num: 4, PCG_Iter_num: 0, PCG_Error: 0.613496
+  GN_Iter_num: 4, PCG_Iter_num: 1, PCG_Error: 0.574197
+  GN_Iter_num: 4, PCG_Iter_num: 2, PCG_Error: 0.521865
+  GN_Iter_num: 4, PCG_Iter_num: 3, PCG_Error: 0.492175
+  GN_Iter_num: 4, PCG_Iter_num: 4, PCG_Error: 0.4439
+  GN_Iter_num: 4, PCG_Iter_num: 5, PCG_Error: 0.419932
+  GN_Iter_num: 4, PCG_Iter_num: 6, PCG_Error: 0.432933
+  GN_Iter_num: 4, PCG_Iter_num: 7, PCG_Error: 0.422875
+  GN_Iter_num: 4, PCG_Iter_num: 8, PCG_Error: 0.418263
+  GN_Iter_num: 4, PCG_Iter_num: 9, PCG_Error: 0.344267
+  GN_Iter_num: 4, PCG_Iter_num: 10, PCG_Error: 0.324888
+  GN_Iter_num: 4, PCG_Iter_num: 11, PCG_Error: 0.258431
+  GN_Iter_num: 4, PCG_Iter_num: 12, PCG_Error: 0.205566
+  GN_Iter_num: 4, PCG_Iter_num: 13, PCG_Error: 0.188706
+  GN_Iter_num: 4, PCG_Iter_num: 14, PCG_Error: 0.157975
+  GN_Iter_num: 4, PCG_Iter_num: 15, PCG_Error: 0.123327
+  GN_Iter_num: 4, PCG_Iter_num: 16, PCG_Error: 0.0956451
+    Run update_model_direction time: 3.19685
+  The runtime for this iteration is: 0 hr 0 min 15.0989 sec
+
+==========inversion iter: 5
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.92331
+    Solve the primal problem time: 3.14077
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 5 : 11.3435 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.71648
+  The value of the regularization parameter: 20
+  GN_Iter_num: 5, PCG_Iter_num: 0, PCG_Error: 0.723722
+  GN_Iter_num: 5, PCG_Iter_num: 1, PCG_Error: 0.558502
+  GN_Iter_num: 5, PCG_Iter_num: 2, PCG_Error: 0.49953
+  GN_Iter_num: 5, PCG_Iter_num: 3, PCG_Error: 0.448333
+  GN_Iter_num: 5, PCG_Iter_num: 4, PCG_Error: 0.388942
+  GN_Iter_num: 5, PCG_Iter_num: 5, PCG_Error: 0.362096
+  GN_Iter_num: 5, PCG_Iter_num: 6, PCG_Error: 0.355982
+  GN_Iter_num: 5, PCG_Iter_num: 7, PCG_Error: 0.355721
+  GN_Iter_num: 5, PCG_Iter_num: 8, PCG_Error: 0.335131
+  GN_Iter_num: 5, PCG_Iter_num: 9, PCG_Error: 0.296653
+  GN_Iter_num: 5, PCG_Iter_num: 10, PCG_Error: 0.272928
+  GN_Iter_num: 5, PCG_Iter_num: 11, PCG_Error: 0.219548
+  GN_Iter_num: 5, PCG_Iter_num: 12, PCG_Error: 0.174622
+  GN_Iter_num: 5, PCG_Iter_num: 13, PCG_Error: 0.164955
+  GN_Iter_num: 5, PCG_Iter_num: 14, PCG_Error: 0.143187
+  GN_Iter_num: 5, PCG_Iter_num: 15, PCG_Error: 0.117608
+  GN_Iter_num: 5, PCG_Iter_num: 16, PCG_Error: 0.0900209
+    Run update_model_direction time: 3.19708
+  The runtime for this iteration is: 0 hr 0 min 15.0431 sec
+
+==========inversion iter: 6
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.94986
+    Solve the primal problem time: 3.15531
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 6 : 11.4042 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.68616
+  The value of the regularization parameter: 20
+  GN_Iter_num: 6, PCG_Iter_num: 0, PCG_Error: 0.717843
+  GN_Iter_num: 6, PCG_Iter_num: 1, PCG_Error: 0.558433
+  GN_Iter_num: 6, PCG_Iter_num: 2, PCG_Error: 0.503247
+  GN_Iter_num: 6, PCG_Iter_num: 3, PCG_Error: 0.44642
+  GN_Iter_num: 6, PCG_Iter_num: 4, PCG_Error: 0.396012
+  GN_Iter_num: 6, PCG_Iter_num: 5, PCG_Error: 0.375547
+  GN_Iter_num: 6, PCG_Iter_num: 6, PCG_Error: 0.368672
+  GN_Iter_num: 6, PCG_Iter_num: 7, PCG_Error: 0.349676
+  GN_Iter_num: 6, PCG_Iter_num: 8, PCG_Error: 0.339455
+  GN_Iter_num: 6, PCG_Iter_num: 9, PCG_Error: 0.295913
+  GN_Iter_num: 6, PCG_Iter_num: 10, PCG_Error: 0.275314
+  GN_Iter_num: 6, PCG_Iter_num: 11, PCG_Error: 0.217066
+  GN_Iter_num: 6, PCG_Iter_num: 12, PCG_Error: 0.175359
+  GN_Iter_num: 6, PCG_Iter_num: 13, PCG_Error: 0.157507
+  GN_Iter_num: 6, PCG_Iter_num: 14, PCG_Error: 0.133153
+  GN_Iter_num: 6, PCG_Iter_num: 15, PCG_Error: 0.10804
+  GN_Iter_num: 6, PCG_Iter_num: 16, PCG_Error: 0.0830387
+    Run update_model_direction time: 3.21272
+  The runtime for this iteration is: 0 hr 0 min 15.1728 sec
+
+==========inversion iter: 7
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.92447
+    Solve the primal problem time: 3.16231
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 7 : 11.3324 seconds.
+    The condition of sufficient descent is not satisfied, perform zoom search...
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.9293
+    Solve the primal problem time: 3.21446
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 8 : 11.4496 seconds.
+    The curvature condition is not satisfied, continue searching...
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.92339
+    Solve the primal problem time: 3.16397
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 9 : 11.3985 seconds.
+    The condition of sufficient descent is not satisfied, continue searching...
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.92823
+    Solve the primal problem time: 3.14914
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 10 : 11.3942 seconds.
+    The condition of sufficient descent is not satisfied, continue searching...
+  Solving the primal problem ...
+    Assemble the primal problem time: 2.18531
+    Solve the primal problem time: 3.18002
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 11 : 11.9967 seconds.
+    The condition of sufficient descent is not satisfied, continue searching...
+    The line search did not converge, the best step is: 0.484218
+  Error of data fitting: 1.68058
+  The value of the regularization parameter: 20
+  GN_Iter_num: 7, PCG_Iter_num: 0, PCG_Error: 0.717268
+  GN_Iter_num: 7, PCG_Iter_num: 1, PCG_Error: 0.561686
+  GN_Iter_num: 7, PCG_Iter_num: 2, PCG_Error: 0.501813
+  GN_Iter_num: 7, PCG_Iter_num: 3, PCG_Error: 0.44017
+  GN_Iter_num: 7, PCG_Iter_num: 4, PCG_Error: 0.388874
+  GN_Iter_num: 7, PCG_Iter_num: 5, PCG_Error: 0.37012
+  GN_Iter_num: 7, PCG_Iter_num: 6, PCG_Error: 0.362181
+  GN_Iter_num: 7, PCG_Iter_num: 7, PCG_Error: 0.343089
+  GN_Iter_num: 7, PCG_Iter_num: 8, PCG_Error: 0.328903
+  GN_Iter_num: 7, PCG_Iter_num: 9, PCG_Error: 0.2943
+  GN_Iter_num: 7, PCG_Iter_num: 10, PCG_Error: 0.268634
+  GN_Iter_num: 7, PCG_Iter_num: 11, PCG_Error: 0.215768
+  GN_Iter_num: 7, PCG_Iter_num: 12, PCG_Error: 0.171985
+  GN_Iter_num: 7, PCG_Iter_num: 13, PCG_Error: 0.152908
+  GN_Iter_num: 7, PCG_Iter_num: 14, PCG_Error: 0.12808
+  GN_Iter_num: 7, PCG_Iter_num: 15, PCG_Error: 0.104134
+  GN_Iter_num: 7, PCG_Iter_num: 16, PCG_Error: 0.0813733
+    Run update_model_direction time: 3.29152
+  The runtime for this iteration is: 0 hr 1 min 1.44995 sec
+
+==========inversion iter: 8
+  Solving the primal problem ...
+    Assemble the primal problem time: 2.12755
+    Solve the primal problem time: 3.41167
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 12 : 12.0464 seconds.
+    The condition of sufficient descent is not satisfied, perform zoom search...
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.98307
+    Solve the primal problem time: 3.2222
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 13 : 11.5793 seconds.
+    The condition of sufficient descent is not satisfied, continue searching...
+  Solving the primal problem ...
+    Assemble the primal problem time: 2.0098
+    Solve the primal problem time: 3.2928
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 14 : 11.9474 seconds.
+    The condition of sufficient descent is not satisfied, continue searching...
+  Solving the primal problem ...
+    Assemble the primal problem time: 2.04057
+    Solve the primal problem time: 3.27941
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 15 : 11.9399 seconds.
+    The condition of sufficient descent is not satisfied, continue searching...
+  Solving the primal problem ...
+    Assemble the primal problem time: 2.01994
+    Solve the primal problem time: 3.16511
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 16 : 11.606 seconds.
+    The condition of sufficient descent is not satisfied, continue searching...
+    The line search did not converge, the best step is: 0.0532298
+  Error of data fitting: 1.68002
+  The value of the regularization parameter: 2
+  GN_Iter_num: 8, PCG_Iter_num: 0, PCG_Error: 1.2079
+  GN_Iter_num: 8, PCG_Iter_num: 1, PCG_Error: 1.24428
+  GN_Iter_num: 8, PCG_Iter_num: 2, PCG_Error: 0.926979
+  GN_Iter_num: 8, PCG_Iter_num: 3, PCG_Error: 0.874995
+  GN_Iter_num: 8, PCG_Iter_num: 4, PCG_Error: 0.95914
+  GN_Iter_num: 8, PCG_Iter_num: 5, PCG_Error: 0.884776
+  GN_Iter_num: 8, PCG_Iter_num: 6, PCG_Error: 0.771566
+  GN_Iter_num: 8, PCG_Iter_num: 7, PCG_Error: 0.688254
+  GN_Iter_num: 8, PCG_Iter_num: 8, PCG_Error: 0.557661
+  GN_Iter_num: 8, PCG_Iter_num: 9, PCG_Error: 0.48739
+  GN_Iter_num: 8, PCG_Iter_num: 10, PCG_Error: 0.45113
+  GN_Iter_num: 8, PCG_Iter_num: 11, PCG_Error: 0.38025
+  GN_Iter_num: 8, PCG_Iter_num: 12, PCG_Error: 0.362872
+  GN_Iter_num: 8, PCG_Iter_num: 13, PCG_Error: 0.36344
+  GN_Iter_num: 8, PCG_Iter_num: 14, PCG_Error: 0.339524
+  GN_Iter_num: 8, PCG_Iter_num: 15, PCG_Error: 0.309166
+  GN_Iter_num: 8, PCG_Iter_num: 16, PCG_Error: 0.31542
+  GN_Iter_num: 8, PCG_Iter_num: 17, PCG_Error: 0.279982
+  GN_Iter_num: 8, PCG_Iter_num: 18, PCG_Error: 0.255087
+  GN_Iter_num: 8, PCG_Iter_num: 19, PCG_Error: 0.232111
+  GN_Iter_num: 8, PCG_Iter_num: 20, PCG_Error: 0.204989
+  GN_Iter_num: 8, PCG_Iter_num: 21, PCG_Error: 0.183186
+  GN_Iter_num: 8, PCG_Iter_num: 22, PCG_Error: 0.169043
+  GN_Iter_num: 8, PCG_Iter_num: 23, PCG_Error: 0.157817
+  GN_Iter_num: 8, PCG_Iter_num: 24, PCG_Error: 0.160207
+  GN_Iter_num: 8, PCG_Iter_num: 25, PCG_Error: 0.148332
+  GN_Iter_num: 8, PCG_Iter_num: 26, PCG_Error: 0.126073
+  GN_Iter_num: 8, PCG_Iter_num: 27, PCG_Error: 0.113861
+  GN_Iter_num: 8, PCG_Iter_num: 28, PCG_Error: 0.112159
+  GN_Iter_num: 8, PCG_Iter_num: 29, PCG_Error: 0.0931697
+    Run update_model_direction time: 5.69816
+  The runtime for this iteration is: 0 hr 1 min 5.38343 sec
+
+==========inversion iter: 9
+  Solving the primal problem ...
+    Assemble the primal problem time: 1.9936
+    Solve the primal problem time: 3.26373
+    The number of the forward unknowns: 2358
+  And solving the adjoint problem ...
+  Forward modeling iteration # and time consumed: 17 : 11.806 seconds.
+    The linear search is successful, the step value is: 1
+  Error of data fitting: 1.04888
+  The value of the regularization parameter: 2
+  The data misfit reached the pre-set value, stop iteration.
+myid 0 enter into initial memory: 0.0701218
+myid 0 need memory in this code: 0.320923
+The number of cpus is: 4
+The total runtime for this inversion is: 0 hr 3 min 44.0645 sec
+The total runtime for all the forward is: 193.981

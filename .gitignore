@@ -1,0 +1,5 @@
+*.o
+DC3DInv
+*.mod
+__pycache__/
+.DS_Store

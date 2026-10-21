@@ -1,0 +1,150 @@
+Opening /tmp/tmp31k3r0li.poly.
+  Segments are connected properly.
+min/max(dweight) = 50/50
+Calculating response for model: min = 257.3 max = 257.3
+Allocating memory for primary potential...... 0.00305474
+
+No primary potential for secondary field calculation. Calculating analytically...
+Forward: time: 71.5573s
+Response: min = 257.3 max = 257.3 mean = 257.3
+Reciprocity rms(modelReciprocity) 0%, max: 0%
+min/max(dweight) = 50/50
+Building constraints matrix
+constraint matrix of size(nBounds x nModel) 42936 x 22304
+check Jacobian: wrong dimensions: (0x0) should be (753x22304)  force: 1
+jacobian size invalid, forced recalc: 1
+Calculating Jacobian matrix (forced=1)...Using existing subpotentials for createJacobian.
+S(8/8-std::mt): 0.141188:time: 9.02389s
+sens sum: median = 1.03655 min = 0.395137 max = 1.36582
+... 9.1584 s
+min data = 119.1 max data = 488.4 (753)
+min error = 0.02 max error = 0.02 (753)
+min response = 257.3 max response = 257.3 (753)
+calc without reference model
+0: rms/rrms(data, response) = 75.2122/33.4005%
+0: chi^2(data, response, error, log) = 217.79
+0: Phi = 163996 + 0 * 20 = 163996
+solve CGLSCDWWtrans with lambda = 20
+Calculating response for model: min = 88.4527 max = 715.756
+Using existing primary potentials.
+Forward: time: 55.4601s
+Response: min = 111.228 max = 513.869 mean = 250.652
+Reciprocity rms(modelReciprocity) 1.94694%, max: 16.7583%
+1: LS newModel: min = 88.4527; max = 715.756
+1: LS newResponse: min = 109.686; max = 519.383
+1: rms/rrms(data, LS newResponse) = 20.6963/7.62866%
+1: chi^2(data, LS newResponse, error, log) = 16.3384
+1: Phi = 12302.8+181.883*20=15940.5
+Performing line search with tau = 0.9
+Calculating response for model: min = 98.4202 max = 646.148
+Using existing primary potentials.
+Forward: time: 58.6888s
+Response: min = 121.652 max = 483.061 mean = 251.522
+Reciprocity rms(modelReciprocity) 1.74571%, max: 14.7384%
+1: Model: min = 98.4202; max = 646.148
+1: Response: min = 120.159; max = 487.707
+1: rms/rrms(data, Response) = 20.3188/7.09016%
+1: chi^2(data, Response, error, log) = 13.6559
+1: Phi = 10282.9+147.325*20=13229.4
+Calculating Jacobian matrix (forced=1)...Using existing subpotentials for createJacobian.
+S(8/8-std::mt): 0.0561575:time: 8.97699s
+sens sum: median = 1.11254 min = 0.45285 max = 1.5996
+... 9.07121 s
+solve CGLSCDWWtrans with lambda = 20
+Calculating response for model: min = 87.3964 max = 795.945
+Using existing primary potentials.
+Forward: time: 59.8423s
+Response: min = 121.334 max = 506.046 mean = 260.445
+Reciprocity rms(modelReciprocity) 1.78109%, max: 12.5336%
+2: LS newModel: min = 87.3964; max = 795.945
+2: LS newResponse: min = 121.168; max = 505.539
+2: rms/rrms(data, LS newResponse) = 10.5576/3.85491%
+2: chi^2(data, LS newResponse, error, log) = 3.71889
+2: Phi = 2800.33+183.565*20=6471.63
+Performing line search with tau = 0.83
+Calculating response for model: min = 89.9108 max = 766.399
+Using existing primary potentials.
+Forward: time: 56.3654s
+Response: min = 122.724 max = 492.426 mean = 258.96
+Reciprocity rms(modelReciprocity) 1.76026%, max: 12.8808%
+2: Model: min = 89.9108; max = 766.399
+2: Response: min = 122.638; max = 491.964
+2: rms/rrms(data, Response) = 10.492/3.75136%
+2: chi^2(data, Response, error, log) = 3.5875
+2: Phi = 2701.39+173.772*20=6176.82
+Calculating Jacobian matrix (forced=1)...Using existing subpotentials for createJacobian.
+S(8/8-std::mt): 0.0520489:time: 9.82388s
+sens sum: median = 1.13507 min = 0.447354 max = 1.65663
+... 9.91863 s
+solve CGLSCDWWtrans with lambda = 20
+Calculating response for model: min = 88.2646 max = 793.274
+Using existing primary potentials.
+Forward: time: 62.1024s
+Response: min = 121.824 max = 473.067 mean = 261.05
+Reciprocity rms(modelReciprocity) 1.76931%, max: 12.2682%
+3: LS newModel: min = 88.2646; max = 793.274
+3: LS newResponse: min = 121.733; max = 473.615
+3: rms/rrms(data, LS newResponse) = 9.14409/3.38604%
+3: chi^2(data, LS newResponse, error, log) = 2.8821
+3: Phi = 2170.22+179.971*20=5769.64
+Performing line search with tau = 0.72
+Calculating response for model: min = 88.7225 max = 785.656
+Using existing primary potentials.
+Forward: time: 59.3281s
+Response: min = 122.08 max = 477.706 mean = 260.467
+Reciprocity rms(modelReciprocity) 1.76477%, max: 12.4357%
+3: Model: min = 88.7225; max = 785.656
+3: Response: min = 121.989; max = 477.406
+3: rms/rrms(data, Response) = 9.09639/3.35684%
+3: chi^2(data, Response, error, log) = 2.84526
+3: Phi = 2142.48+177.75*20=5697.47
+Calculating Jacobian matrix (forced=1)...Using existing subpotentials for createJacobian.
+S(8/8-std::mt): 0.0623054:time: 9.02864s
+sens sum: median = 1.13708 min = 0.465903 max = 1.66796
+... 9.12191 s
+solve CGLSCDWWtrans with lambda = 20
+Calculating response for model: min = 87.0839 max = 789.942
+Using existing primary potentials.
+Forward: time: 57.8161s
+Response: min = 121.922 max = 484.352 mean = 261.438
+Reciprocity rms(modelReciprocity) 1.77534%, max: 12.231%
+4: LS newModel: min = 87.0839; max = 789.942
+4: LS newResponse: min = 121.803; max = 483.998
+4: rms/rrms(data, LS newResponse) = 8.82193/3.29865%
+4: chi^2(data, LS newResponse, error, log) = 2.72741
+4: Phi = 2053.74+180.445*20=5662.64
+Performing line search with tau = 0.86
+Calculating response for model: min = 87.3115 max = 789.34
+Using existing primary potentials.
+Forward: time: 57.1079s
+Response: min = 121.944 max = 483.418 mean = 261.302
+Reciprocity rms(modelReciprocity) 1.7738%, max: 12.2594%
+4: Model: min = 87.3115; max = 789.34
+4: Response: min = 121.829; max = 483.072
+4: rms/rrms(data, Response) = 8.84633/3.30255%
+4: chi^2(data, Response, error, log) = 2.73672
+4: Phi = 2060.75+180.049*20=5661.73
+Data: Sensors: 126 data: 753, nonzero entries: ['a', 'b', 'k', 'm', 'n', 'rhoa', 'valid']
+here-20250414
+Mesh: Nodes: 6501 Cells: 36248 Boundaries: 73634
+753 [0.02,...,0.02]
+fop: <pygimli.physics.ert.ertModelling.ERTModelling object at 0x7f7022ac1ad0>
+Data transformation: Logarithmic LU transform, lower bound 0.0, upper bound 0.0
+Model transformation: Logarithmic transform
+min/max (data): 119/488
+min/max (error): 2%/2%
+min/max (start model): 257/257
+--------------------------------------------------------------------------------
+inv.iter 0 ... chi² =  217.79
+--------------------------------------------------------------------------------
+inv.iter 1 ... chi² =   13.66 (dPhi = 91.93%) lam: 20.0
+--------------------------------------------------------------------------------
+inv.iter 2 ... chi² =    3.59 (dPhi = 53.31%) lam: 20.0
+--------------------------------------------------------------------------------
+inv.iter 3 ... chi² =    2.85 (dPhi = 7.76%) lam: 20.0
+--------------------------------------------------------------------------------
+inv.iter 4 ... chi² =    2.74 (dPhi = 0.63%) lam: 20.0
+################################################################################
+#                Abort criterion reached: dPhi = 0.63 (< 2.0%)                 #
+################################################################################
+代码执行时间: 679.3799111843109 秒
