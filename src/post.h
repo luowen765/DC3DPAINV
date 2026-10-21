@@ -11,7 +11,7 @@
 // Hongbo Yao, and Jingtian Tang.
 // This file is part of the DC3DPAINV program. DC3DPAINV is free
 // software with source code available at
-// https://github.com/luowen7592/DC3DPAINV. You can redistribute it
+// https://github.com/luowen765/DC3DPAINV. You can redistribute it
 // or modify it under the terms of the BSD-3 license. See the
 // LICENSE file for details.
 
