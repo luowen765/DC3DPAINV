@@ -43,10 +43,9 @@ configuration is:
 | MUMPS | 5.3.5 | optional direct solver (`linear_solver = mumps`) |
 | GNU make | 4.x | build |
 
-MFEM must provide MPI, METIS 5, and hypre support. The tested build also
-enables MUMPS and the MKL CPARDISO interface, which supply the libraries used
-by the optional `mumps` solver and the PARDISO-based GN solver. A typical MFEM
-configuration is:
+MFEM must provide MPI, METIS 5, and hypre support; the `amg` solver uses
+hypre, the `mumps` solver requires `MFEM_USE_MUMPS=YES`, and GN additionally
+requires the MKL CPARDISO interface. The tested build enables all of these:
 
 ```text
 MFEM_USE_MPI          = YES
@@ -104,9 +103,9 @@ NP=4 bash run.sh
 ```
 
 `run.sh` builds the executable in the parent directory and starts
-`mpirun -np ${NP} ../DC3DInv inversion_parameters.txt`. The default process
-counts are those used in the paper (16 for ex1, 32 for ex2, and 4 for ex3); set
-`NP` explicitly on a different machine:
+`mpirun -np ${NP} ../DC3DInv inversion_parameters.txt`. It defaults to the
+process count used for that case in the paper, as listed in
+[Examples](#examples); set `NP` explicitly on a different machine:
 
 ```bash
 NP=8 bash run.sh
@@ -120,17 +119,28 @@ mpirun -np 4 ../DC3DInv inversion_parameters.txt
 
 ## Examples
 
-| Directory | Paper section | Case |
-| --- | --- | --- |
-| `examples/ex1/adinv` | 3.1, Figs. 3--5, Table 1 | undulating topography, adaptive-mesh L-BFGS |
-| `examples/ex1/inv` | 3.1 | undulating topography, fixed-mesh L-BFGS with topography |
-| `examples/ex1/not_consider_topo` | 3.1 | flat-surface control, fixed-mesh L-BFGS |
-| `examples/ex2/inv` | 3.2, Figs. 6--11, Table 2 | triaxial anisotropy, fixed-mesh L-BFGS |
-| `examples/ex2/adinv` | 3.2 | triaxial anisotropy, adaptive-mesh L-BFGS |
-| `examples/ex2/iso` | 3.2 | isotropic control for the triaxial data |
-| `examples/ex3/iso` | 3.3, Figs. 12--15, Table 3 | mining-tunnel field data, isotropic GN |
-| `examples/ex3/vti` | 3.3 | mining-tunnel field data, VTI GN |
-| `examples/ex3/pyGIMLi_refer` | 3.3 | pyGIMLi reference result for the tunnel data |
+| Directory | Paper section | Case | Processes | Reference result |
+| --- | --- | --- | --- | --- |
+| `examples/ex1/adinv` | 3.1, Figs. 3--5, Table 1 | undulating topography, adaptive-mesh L-BFGS | 16 | 296,486 → 627,684 elements, 27 iterations, 306.3 s |
+| `examples/ex1/inv` | 3.1 | undulating topography, fixed-mesh L-BFGS with topography | 16 | 1,323,057 inversion elements, 38 iterations, 785.7 s |
+| `examples/ex1/not_consider_topo` | 3.1 | flat-surface control, fixed-mesh L-BFGS | 16 | — |
+| `examples/ex2/inv` | 3.2, Figs. 6--11, Table 2 | triaxial anisotropy, fixed-mesh L-BFGS | 32 | 248,629 elements / 745,887 unknowns, 61 iterations, 500.0 s |
+| `examples/ex2/adinv` | 3.2 | triaxial anisotropy, adaptive-mesh L-BFGS | 32 | 22,469 → 62,891 elements / 188,673 unknowns, 43 iterations, 112.5 s |
+| `examples/ex2/iso` | 3.2 | isotropic control for the triaxial data | 32 | — |
+| `examples/ex3/iso` | 3.3, Figs. 12--15, Table 3 | mining-tunnel field data, isotropic GN | 4 | 10,246 → 21,528 elements, 6 updates, final RMS 1.0572, 140.2 s |
+| `examples/ex3/vti` | 3.3 | mining-tunnel field data, VTI GN | 4 | — |
+| `examples/ex3/pyGIMLi_refer` | 3.3 | pyGIMLi reference result for the tunnel data | 4 | — |
+
+The "Reference result" column lists the outcome reported in the manuscript:
+inversion elements, forward unknowns where quoted, iterations, and wall-clock
+time. The timings were obtained on the platform used for the manuscript and
+are indicative only. The first two examples require an HPC node, whereas the
+field-data example runs on a laptop with four MPI processes.
+
+Reference output files, where provided, are kept in each case directory
+(`Inversion_results/` and `run.log`). The `examples/ex3/iso` directory retains
+the original run log; a verification run with the released code, using the same
+four-process configuration, reproduced the final weighted RMS of 1.0572.
 
 All synthetic examples use a homogeneous 100 Ω·m initial and reference model.
 The field-data examples use the median observed apparent resistivity,
@@ -203,6 +213,13 @@ line. Blank lines and text after `#` are ignored. The entry order is fixed.
 | 44 | `integration_order` | quadrature order: 1, 2, or 3 |
 | 45 | `n_group` | number of source groups; 1 uses domain decomposition only |
 
+A value of `n_group` greater than one splits the sources across process groups
+and requires the `MPI_COMM_WORLD` size to be at least `n_group`; `n_group = 1`
+assigns all processes to a single domain-decomposition group. The data error
+column defines the inversion weights
+`W_d(i,i) = 1 / (error_i + noise_floor)`, where `noise_floor` is in the same
+units as the data.
+
 ### `sigma.file`
 
 The conductivity model file must contain **no comments**. The format is:
@@ -260,39 +277,6 @@ mesh-refinement flags, and the numbers of forward unknowns and inversion
 elements. A copy of the final predicted data and the summary table is also
 kept in each case directory where available. `run.log` records the complete
 run.
-
-## Reproducing the paper
-
-The paper reports the following reference runs:
-
-| Example | MPI processes | Key result |
-| --- | --- | --- |
-| ex1 fixed mesh | 16 | 1,323,057 inversion elements, 38 iterations, 785.7 s |
-| ex1 adaptive mesh | 16 | 296,486 → 627,684 elements, 27 iterations, 306.3 s |
-| ex2 fixed mesh | 32 | 248,629 elements / 745,887 unknowns, 61 iterations, 500.0 s |
-| ex2 adaptive mesh | 32 | 22,469 → 62,891 elements / 188,673 unknowns, 43 iterations, 112.5 s |
-| ex3 isotropic GN | 4 | 10,246 → 21,528 elements, 6 updates, final RMS 1.0572, 140.2 s |
-
-The first two examples require an HPC node. The field-data example runs on a
-laptop with four MPI processes. The `examples/ex3/iso` directory retains the
-original reference run log; a verification run with the released code, using
-the same four-process configuration, reproduced the final weighted RMS of
-1.0572.
-
-## Configuration notes
-
-- `n_group = 1` assigns all MPI processes to one domain-decomposition group.
-  Values greater than one split the sources across process groups and require
-  `MPI_COMM_WORLD` size to be at least `n_group`.
-- `h_to_surface` is retained for input compatibility and is currently unused.
-- Only `find_points_by = FindPoints` is implemented.
-- Only `error_esti_way = jn` and `zz_patch` are implemented.
-- The `mumps` solver requires MFEM built with `MFEM_USE_MUMPS=YES`; the `amg`
-  solver requires hypre. GN additionally uses Eigen's PARDISO interface and
-  therefore requires MKL.
-- The data error column defines the weights
-  `W_d(i,i) = 1 / (error_i + noise_floor)`; `noise_floor` is in the same units
-  as the data.
 
 ## License
 
