@@ -813,7 +813,7 @@ void InvBase::resetInvParas(int N_iter) {
         std::cout
             << "  The number of the cells in the locally refined inv mesh is: "
             << mesh_inv->GetNE() << std::endl;
-        std::cout << "  The number of the nodes in the the locally refined inv "
+        std::cout << "  The number of the nodes in the locally refined inv "
                      "mesh is: "
                   << mesh_inv->GetNV() << std::endl;
       }

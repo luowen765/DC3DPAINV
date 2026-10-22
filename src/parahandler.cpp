@@ -504,7 +504,7 @@ void ParaHandler::read_model_info(char *model_file) {
       }
 
     } else {
-      std::cout << "fail to get measure_sources, unsopported mode!\n";
+      std::cout << "fail to get measure_sources, unsupported mode!\n";
       std::abort();
     }
 
@@ -619,7 +619,7 @@ void ParaHandler::read_model_info(char *model_file) {
     s_len = 1;
     m_len = 2;
   } else {
-    std::cout << "fail to get measure_sources_locId, unsopported mode!\n";
+    std::cout << "fail to get measure_sources_locId, unsupported mode!\n";
     std::abort();
   }
 
@@ -671,7 +671,7 @@ void ParaHandler::read_model_info(char *model_file) {
 
   int N_inv_domain;
   cond_in_stream >> n_regions >> N_inv_domain;
-  marker_vec.resize(n_regions);
+  marker_vec.reserve(n_regions);
   inv_marker.resize(N_inv_domain);
   for (int i = 0; i < n_regions; i++) {
     int marker;
@@ -683,8 +683,8 @@ void ParaHandler::read_model_info(char *model_file) {
         angle[0] >> angle[1] >> angle[2];
 
     if (angle(0) != 0.0 || angle(1) != 0.0 || angle(2) != 0.0) {
-      std::cout << "The rotation angles is not considered in this inversion, "
-                   "please check it."
+      std::cout << "Rotation angles are not supported in this inversion; "
+                   "please set them to zero."
                 << std::endl;
       std::abort();
     }

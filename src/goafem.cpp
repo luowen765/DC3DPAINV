@@ -280,7 +280,7 @@ void GOAFEM::one_forward_iteration(
   }
   if (global_dofs > 2147483648) {
     if (world_rank == 0) {
-      std::cout << "\nmax_dofs has exited the range of int-type data, please "
+      std::cout << "\nmax_dofs has exceeded the range of int-type data, please "
                    "modify your code!";
     }
     return;
@@ -515,7 +515,7 @@ void GOAFEM::one_forward_iteration(
             }
 
           } else {
-            std::cout << "unvailable mode!\n";
+            std::cout << "unavailable mode!\n";
             std::getchar();
           }
 
@@ -808,7 +808,7 @@ void GOAFEM::assemble_adjoint_linearform(int adjointId, REV &vec) {
         }
 
       } else {
-        std::cout << "unvailable mode!\n";
+        std::cout << "unavailable mode!\n";
         std::getchar();
       }
     }
@@ -1125,7 +1125,7 @@ void GOAFEM::assemble_KmE(
           }
         }
       } else {
-        std::cout << "Unsopported mode!" << std::endl;
+        std::cout << "Unsupported mode!" << std::endl;
         std::abort();
       }
 
