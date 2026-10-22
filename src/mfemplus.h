@@ -83,7 +83,6 @@ public:
 
   void PrintVTK_eta(std::ostream &out, Vector &other_attri, int n_value = 1);
 
-  void write_out_node_info_vtk(std::ostream &out, Vector &node_data);
 };
 
 #endif
@@ -127,29 +126,6 @@ public:
   using Coefficient::Eval;
 
   virtual double Eval(ElementTransformation &T, const IntegrationPoint &ip);
-};
-
-class RVCoefficient : public VectorCoefficient {
-private:
-  std::vector<DenseMatrix> mat;
-  DenseMatrix sigma0;
-  Vector x_i;
-  int if_s_on_surface;
-
-public:
-
-  RVCoefficient(std::vector<DenseMatrix> &m, DenseMatrix sigma0_,
-                Vector source_i, int if_s_on_surface_
-
-                )
-      : VectorCoefficient(3), mat(m), sigma0(sigma0_), x_i(source_i),
-        if_s_on_surface(if_s_on_surface_)
-
-  {}
-  using VectorCoefficient::Eval;
-
-  virtual void Eval(Vector &V, ElementTransformation &T,
-                    const IntegrationPoint &ip);
 };
 
 class RGamma0Coefficient : public Coefficient {

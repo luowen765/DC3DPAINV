@@ -1,5 +1,5 @@
 # DC3DPAINV inversion control file
-# Exactly 45 non-comment entries are required. Blank lines and text after #
+# Exactly 40 non-comment entries are required. Blank lines and text after #
 # are ignored. The entry order is fixed; see README.md for details.
 #
 # --- Inversion control ---
@@ -28,10 +28,7 @@ gn                           # Optimization algorithm: gn or lbfgs
 0                            # Local refinement levels around electrodes on the initial inversion mesh
 2                            # Maximum number of inversion-mesh refinements (0 = fixed mesh)
 2                            # Minimum number of iterations between inversion-mesh refinements
-1                            # Inversion-mesh indicator: 0 = model gradient, 1 = JTV, 2 = both
-0.01                         # Refinement fraction for indicator 0
-0.002                        # Refinement fraction for indicator 1
-0                            # Reserved depth threshold (currently unused; set to 0)
+0.002                        # Refinement fraction for the data-misfit gradient indicator
 # --- Forward model, solver, and parallelism ---
 forward_inputs/sigma.file    # Initial and reference conductivity model file
 forward_inputs/3dflat-6606.msh # Initial forward mesh file
@@ -42,11 +39,9 @@ forward_inputs/3dflat-6606.msh # Initial forward mesh file
 0                            # Forward AMR criterion: 0 = ratio, 1 = relative error
 0.01                         # Ratio or threshold used by the forward AMR criterion
 5000000                      # Maximum number of forward degrees of freedom
-amg                          # Linear solver: amg, ilu, or mumps
-FindPoints                   # Point-location method (currently only FindPoints)
+amg                          # Linear solver: amg or mumps
 500                          # Maximum PCG iterations for forward and adjoint solves
 1e-7                         # PCG tolerance for primal solves
 1e-4                         # PCG tolerance for dual (adjoint) solves
-jn                           # Error estimator: jn or zz_patch
 1                            # Quadrature order: 1, 2, or 3
 1                            # Number of source groups for source-level parallelism (1 = domain decomposition only)

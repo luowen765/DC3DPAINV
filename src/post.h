@@ -40,13 +40,6 @@ public:
 
   std::vector<Array<double>> local_Up;
 
-  std::vector<Array<double>> Ex;
-  std::vector<Array<double>> Ey;
-  std::vector<Array<double>> Ez;
-  std::vector<Array<double>> Jx;
-  std::vector<Array<double>> Jy;
-  std::vector<Array<double>> Jz;
-
   std::vector<Array<double>> Ut;
 
 public:

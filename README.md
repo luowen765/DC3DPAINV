@@ -21,8 +21,7 @@ DC3DPAINV/
 ├── examples/          input files, run scripts, and reference results
 ├── figures/           figures of the accompanying manuscript
 ├── src/               C++ sources
-├── LICENSE            BSD-3-Clause license
-├── NOTICE             third-party and derived-code notices
+├── LICENSE            BSD-3-Clause license and third-party notices
 └── README.md          this file
 ```
 
@@ -64,8 +63,7 @@ MFEM, hypre, METIS, Eigen, and MUMPS are available at:
 - <https://gitlab.com/libeigen/eigen>
 - <http://mumps.enseeiht.fr/>
 
-GSLIB is not required. The input reader currently accepts only
-`find_points_by = FindPoints`.
+GSLIB is not required.
 
 ## Building
 
@@ -152,7 +150,7 @@ approximately 257 Ω·m.
 
 ### `inversion_parameters.txt`
 
-The control file contains exactly **45 non-comment entries**, one value per
+The control file contains exactly **40 non-comment entries**, one value per
 line. Blank lines and text after `#` are ignored. The entry order is fixed.
 
 **Inversion control**
@@ -188,32 +186,27 @@ line. Blank lines and text after `#` are ignored. The entry order is fixed.
 | 22 | `N_refine_electrodes_local_inv` | local refinement levels around electrodes on the initial inversion mesh |
 | 23 | `adInv_max_iter` | maximum number of inversion-mesh refinements; 0 keeps the mesh fixed |
 | 24 | `invMesh_keep` | minimum number of iterations between refinements |
-| 25 | `inv_amr_type` | 0 = model gradient, 1 = JTV, 2 = both |
-| 26 | `inv_amr_ratio_model` | refinement fraction for indicator 0 |
-| 27 | `inv_amr_ratio_data` | refinement fraction for indicator 1 |
-| 28 | `h_to_surface` | reserved; currently unused, set to 0 |
+| 25 | `inv_amr_ratio` | refinement fraction for the data-misfit gradient indicator |
 
 **Forward model, solver, and parallelism**
 
 | # | Entry | Meaning |
 | --- | --- | --- |
-| 29 | `model_parameters_file` | initial and reference conductivity model |
-| 30 | `mesh_file` | initial forward mesh |
-| 31 | `relative_misfit_for_up` | refine the forward mesh when the relative misfit drop exceeds this value |
-| 32 | `relative_misfit_for_down` | refine the forward mesh when the relative misfit drop is below this value |
-| 33 | `N_refine_receivers_local_for` | local refinement levels around measurement electrodes on the forward mesh |
-| 34 | `max_amr` | maximum number of forward-mesh AMR iterations; 0 disables AMR |
-| 35 | `amr_type` | 0 = ratio, 1 = relative error |
-| 36 | `amr_ratio` | ratio or threshold for the forward AMR criterion |
-| 37 | `max_dofs` | maximum number of forward degrees of freedom |
-| 38 | `linear_solver` | `amg`, `ilu`, or `mumps` |
-| 39 | `find_points_by` | point-location method; currently only `FindPoints` |
-| 40 | `pcg_maxit` | maximum PCG iterations for forward and adjoint solves |
-| 41 | `pcg_primal_tol` | PCG tolerance for primal solves |
-| 42 | `pcg_dual_tol` | PCG tolerance for dual (adjoint) solves |
-| 43 | `error_esti_way` | `jn` or `zz_patch` |
-| 44 | `integration_order` | quadrature order: 1, 2, or 3 |
-| 45 | `n_group` | number of source groups; 1 uses domain decomposition only |
+| 26 | `model_parameters_file` | initial and reference conductivity model |
+| 27 | `mesh_file` | initial forward mesh |
+| 28 | `relative_misfit_for_up` | refine the forward mesh when the relative misfit drop exceeds this value |
+| 29 | `relative_misfit_for_down` | refine the forward mesh when the relative misfit drop is below this value |
+| 30 | `N_refine_receivers_local_for` | local refinement levels around measurement electrodes on the forward mesh |
+| 31 | `max_amr` | maximum number of forward-mesh AMR iterations; 0 disables AMR |
+| 32 | `amr_type` | 0 = ratio, 1 = relative error |
+| 33 | `amr_ratio` | ratio or threshold for the forward AMR criterion |
+| 34 | `max_dofs` | maximum number of forward degrees of freedom |
+| 35 | `linear_solver` | `amg` or `mumps` |
+| 36 | `pcg_maxit` | maximum PCG iterations for forward and adjoint solves |
+| 37 | `pcg_primal_tol` | PCG tolerance for primal solves |
+| 38 | `pcg_dual_tol` | PCG tolerance for dual (adjoint) solves |
+| 39 | `integration_order` | quadrature order: 1, 2, or 3 |
+| 40 | `n_group` | number of source groups; 1 uses domain decomposition only |
 
 A value of `n_group` greater than one splits the sources across process groups
 and requires the `MPI_COMM_WORLD` size to be at least `n_group`; `n_group = 1`
@@ -233,8 +226,9 @@ marker sigma_xx sigma_yy sigma_zz angle_x angle_y angle_z
 marker_1 marker_2 ... marker_n
 ```
 
-Conductivities are in S/m. The rotation angles are accepted by the reader but
-must currently be zero; the inversion code stops if a nonzero angle is found.
+Conductivities are in S/m. The principal axes are aligned with the survey
+coordinates, so the three rotation angles must be zero; the inversion stops if
+a nonzero angle is found.
 All supplied examples use a single inversion region with marker `19210723`.
 
 ### `observation_data.txt`
@@ -282,9 +276,9 @@ run.
 
 ## License
 
-DC3DPAINV is released under the BSD-3-Clause license; see `LICENSE`. Third-party
-and derived-code notices are provided in `NOTICE`; the original authors are also
-acknowledged in the source headers.
+DC3DPAINV is released under the BSD-3-Clause license; see `LICENSE`, which also
+contains the third-party and derived-code notices. The original authors are
+additionally acknowledged in the source headers.
 
 The reference outputs in `examples/ex3/pyGIMLi_refer` were generated with
 pyGIMLi (Apache-2.0). The mining-tunnel field data are described by Günther

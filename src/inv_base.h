@@ -65,7 +65,6 @@ public:
   REV m_ref;
 
   REV d_model;
-  REV d_model_amr_initial;
 
   RESM WmTWm;
 
@@ -80,7 +79,6 @@ public:
   REV g_k;
   REV update_dire;
   REV m_search, m_best, d_best, JTV_best;
-  REM JT_best;
 
   std::vector<double> objective_func;
   std::vector<double> lamda;
@@ -153,16 +151,12 @@ public:
 
   void output_inversion_parameters(std::string inv_reslut_folder);
 
-  void compareJT_V(int N_iter);
-  void compareJT(int N_iter);
-
   void clear();
 
   virtual void resetInvParas(int N_iter);
 
   void forward_modeling(int N_iter);
 
-  void compute_err_model_grad(Vector &err_model_gradient);
   void compute_err_JTV(Vector &err_model_JTV);
 
   void refine_inv_mesh(std::string inv_reslut_folder);

@@ -141,8 +141,7 @@ void GOAFEM::one_forward_iteration(
   this->set_sigma0();
 
   para_handler.find_point_tets(pmesh, para_handler.sites,
-                               para_handler.local_sites_tets,
-                               para_handler.find_points_by);
+                               para_handler.local_sites_tets);
 
   double t2 = MPI_Wtime();
 
@@ -237,7 +236,7 @@ void GOAFEM::one_forward_iteration(
   }
 
   else {
-    myassert(linear_solver == "amg" || linear_solver == "ilu");
+    myassert(linear_solver == "amg");
     for (int i = 0; i < F.size(); i++) {
 
       solve_with_pcg(A, U[i], F[i], linear_solver, para_handler.pcg_maxit,
@@ -574,8 +573,8 @@ void GOAFEM::one_forward_iteration(
 void GOAFEM::set_sigma0() {
 
   Array<int> local_sources_tets;
-  para_handler.find_point_tets(pmesh, para_handler.sources, local_sources_tets,
-                               para_handler.find_points_by);
+  para_handler.find_point_tets(pmesh, para_handler.sources,
+                               local_sources_tets);
 
   MPI_Comm mycomm = pmesh->GetComm();
   int group_rank, n_procs;
@@ -728,22 +727,10 @@ void GOAFEM::solve_with_pcg(OperatorHandle &A, Vector &X, Vector &B,
     std::abort();
   }
 
-  std::shared_ptr<Solver> prec;
-  if (pre == "amg") {
-
-    std::shared_ptr<HypreBoomerAMG> amg(new HypreBoomerAMG);
-    amg->SetPrintLevel(0);
-    prec = amg;
-  } else if (pre == "ilu") {
-
-    std::shared_ptr<HypreILU> ilu(new HypreILU);
-    ilu->SetPrintLevel(0);
-    prec = ilu;
-  } else {
-    std::cout << "Unsupported input linear solver: "
-              << para_handler.linear_solver << "\n";
-    std::abort();
-  }
+  myassert(pre == "amg");
+  std::shared_ptr<HypreBoomerAMG> amg(new HypreBoomerAMG);
+  amg->SetPrintLevel(0);
+  std::shared_ptr<Solver> prec = amg;
 
   SolversPlus cg(para_handler.group_comm);
 
@@ -1292,19 +1279,8 @@ void GOAFEM::error_estimating() {
   local_err.SetSize(pmesh->GetNE());
   local_err = 0.0;
 
-  if (para_handler.error_esti_way == "jn") {
-
-    nJEstimator nJ_estimator(pmesh, pfes, up, w, cond_att);
-
-    nJ_estimator.get_error_estimates(if_solve_dual, local_err);
-  } else if (para_handler.error_esti_way == "zz_patch") {
-
-    SPREstimator spr_estimator(pmesh, pfes, up, w, cond_att);
-    spr_estimator.get_error_estimates(if_solve_dual, local_err);
-
-  } else {
-    std::cout << "unsupported estimator!" << std::endl;
-  }
+  nJEstimator nJ_estimator(pmesh, pfes, up, w, cond_att);
+  nJ_estimator.get_error_estimates(if_solve_dual, local_err);
 
 }
 
@@ -1412,7 +1388,6 @@ void GOAFEM::assemble_RV_linearform(
     } else {
       intergrationOrder = 2 * fe->GetOrder() + 3;
     }
-
     const IntegrationRule *ir =
         &IntRules.Get(fe->GetGeomType(), intergrationOrder);
 
@@ -1743,7 +1718,6 @@ void GOAFEM::compute_jtv(
         } else {
           intergrationOrder = 2 * fe->GetOrder() + 3;
         }
-
         const IntegrationRule *ir =
             &IntRules.Get(fe->GetGeomType(), intergrationOrder);
 

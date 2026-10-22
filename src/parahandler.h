@@ -64,11 +64,8 @@ public:
 
   int adInv_max_iter;
   int invMesh_keep;
-  int inv_amr_type;
 
-  double inv_amr_ratio_model;
-  double inv_amr_ratio_data;
-  double h_to_surface;
+  double inv_amr_ratio;
 
   int N_electrodes;
   std::vector<Point_double> electrodes;
@@ -118,12 +115,9 @@ public:
   long int max_dofs;
   std::string linear_solver;
 
-  std::string find_points_by;
   int pcg_maxit;
   double pcg_primal_tol;
   double pcg_dual_tol;
-
-  std::string error_esti_way;
 
   int survey_mode;
 
@@ -180,13 +174,8 @@ public:
 
   void find_point_tets(
 
-      std::shared_ptr<ParMesh> pmesh, const std::vector<Vector> &points_,
-      Array<int> &find_tets, const std::string find_points_by);
-
-  void find_point_tets(
-
       std::shared_ptr<ParMesh> pmesh, const std::vector<Vertex> &points,
-      Array<int> &find_tets, const std::string find_points_by);
+      Array<int> &find_tets);
 
   void dual_parallel_resource_allocation(int world_rank, int world_size);
 };

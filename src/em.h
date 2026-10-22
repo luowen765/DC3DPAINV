@@ -1,6 +1,6 @@
 /*
- * @Description: Basic types, constants, geometry utilities, and assertion helpers
- *   shared by the DC3DPAINV modules.
+ * @Description: Basic types, geometry utilities, and assertion helpers shared by
+ *   the DC3DPAINV modules.
  * @Author: Lewen Qiu (original DC3DPAFEM module); adapted for DC3DPAINV by
  *   Lewen Qiu and Huang Chen
  * @Date: 2026-10-21
@@ -20,11 +20,8 @@
 
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
-#include <Eigen/StdVector>
-#include <complex>
 #include <fstream>
 #include <iostream>
-#include <random>
 
 #include <string>
 #include <unistd.h>
@@ -35,45 +32,15 @@
 using namespace mfem;
 
 namespace EM {
-typedef std::complex<double> Dcomplex;
-static const Dcomplex II = Dcomplex(0., 1.);
-
 static const double PI = 3.1415926535897932384626433832795;
-#define MAX_INT std::numeric_limits<int>::max()
 
-const double ARC_TO_DEG = 57.29577951308238;
-const double DEG_TO_ARC = 0.0174532925199433;
-
-static const double TOLERANCE = 1e-6;
-
-#define TRANSTOL 1e-8
-
-static const unsigned int INVALID_UNIT = static_cast<unsigned int>(-1);
-
-typedef Eigen::SparseMatrix<Dcomplex, Eigen::RowMajor> DESM;
 typedef Eigen::SparseMatrix<double, Eigen::RowMajor> RESM;
-typedef Eigen::SparseMatrix<Dcomplex, Eigen::ColMajor> DESM_ColMajor;
-typedef Eigen::SparseMatrix<double, Eigen::ColMajor> RESM_ColMajor;
-typedef Eigen::Matrix<Dcomplex, Eigen::Dynamic, Eigen::Dynamic> DEM;
 typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> REM;
 typedef Eigen::VectorXd REV;
 typedef Eigen::VectorXd DenseVector;
-typedef Eigen::VectorXcd DEV;
-typedef Eigen::SparseVector<Dcomplex> DSEV;
-typedef Eigen::SparseVector<double> RSEV;
 typedef Eigen::Matrix<double, 3, 3> Matrix3D;
 typedef Eigen::Matrix<double, 1, 3> RowVector3D;
 typedef Eigen::Vector3d Vector3D;
-typedef Eigen::Matrix<double, 4, 3> Matrix43D;
-typedef Eigen::Matrix<double, 1, 3> Matrix13D;
-typedef Eigen::Matrix<double, 1, 4> Matrix14D;
-typedef Eigen::Matrix<double, 4, 4> Matrix4D;
-
-#define WHERE bert_str(__FILE__) + ": " + bert_str(__LINE__) + "\t"
-#define WHERE_AM_I WHERE + "\t" + bert_str(__ASSERT_FUNCTION) + " "
-
-enum LogType { Verbose, Info, Warning, Error, Debug, Critical };
-
 }
 using namespace EM;
 
@@ -99,28 +66,8 @@ void static assert_fail(const char *file, int line, const char *func,
       assert_fail(__FILE__, __LINE__, __func__, #expr, "");                    \
     }                                                                          \
   } while (0)
-
-#define MY_ASSERT_EQ(a, b)                                                     \
-  do {                                                                         \
-    using std::to_string;                                                      \
-    if ((a) != (b)) {                                                          \
-      assert_fail(__FILE__, __LINE__, __func__, #a " == " #b,                  \
-                  std::to_string(a) + " != " + std::to_string(b));             \
-    }                                                                          \
-  } while (0)
-
-#define MY_ASSERT_NE(a, b)                                                     \
-  do {                                                                         \
-    using std::to_string;                                                      \
-    if ((a) == (b)) {                                                          \
-      assert_fail(__FILE__, __LINE__, __func__, #a " == " #b,                  \
-                  std::to_string(a) + " != " + std::to_string(b));             \
-    }                                                                          \
-  } while (0)
 #else
-#define MY_ASSERT(expr) (void)0
-#define MY_ASSERT_EQ(expr) (void)0
-#define MY_ASSERT_NE(expr) (void)0
+#define myassert(expr) (void)0
 #endif
 
 #ifndef _Point_double_H
@@ -308,87 +255,11 @@ inline std::ostream &operator<<(std::ostream &output, const REV &v) {
   return output;
 }
 
-inline void throwError(const std::string &errString) {
-  std::cerr << errString << std::endl;
-}
-
-template <class T, class U> T max(const T &a, const U &b) {
-  return std::max(a, T(b));
-}
-
-template <typename Value, typename... Values>
-std::string bert_str(Value v, Values... vs) {
-  std::ostringstream os;
-  using expander = int[];
-  os << v;
-  (void)expander{0, (os << " " << vs, void(), 0)...};
-  return os.str();
-}
-
-void display(REV x);
-void display(Vertex x);
-void display(std::vector<Vertex> x);
-
-std::vector<int> sort(const std::vector<int> &a);
-std::vector<int> unique(const std::vector<int> &a);
-template <class T> void print_std_vector(T a) {
-  for (auto e : a) {
-    std::cout << e << " " << std::endl;
-  }
-}
 void print_time(double time_in_seconds);
 
-void print_value(double value, int dim1 = -1, int dim2 = -1,
-                 std::string fn = "value.txt");
-
-double median(const REV &a);
-REV logspace(double a, double b, int n);
-REV normalRandn(int n);
-
-template <class T> bool isInfNaN(const T &a) {
-  return (std::isinf(a) || std::isnan(a));
-}
-
-inline bool haveInfNaN(const REV &v) {
-  for (int i = 0; i < v.size(); i++) {
-    if (isInfNaN(v(i)))
-      return true;
-  }
-  return false;
-}
-
-#define VECTORASCSUFFIX ".vector"
-#define VECTORBINSUFFIX ".bvec"
-typedef int64_t int64;
-
-enum IOFormat { Ascii, Binary };
-bool save(const REV &a, const std::string &filename, IOFormat format = Ascii);
-bool saveVec(const REV &a, const std::string &filename,
-             IOFormat format = Ascii);
-
-template <typename... Values> void log(LogType type, Values... vs) {
-  return log(type, bert_str(vs...));
-}
-
 double length_two_point(double *coord1, double *coord2);
-double length_two_point(Vector &coord1, Vector &coord2);
 double length_two_point(Point_double &coord1, Point_double &coord2);
 
-bool cmp(std::vector<double> a, std::vector<double> b);
-
-bool cmp2(std::vector<double> a, std::vector<double> b);
-
-bool cmpMN15(std::vector<double> a, std::vector<double> b);
-
-bool cmpN(std::vector<double> a, std::vector<double> b, int N);
-bool cmp3(std::vector<double> a, std::vector<double> b);
-bool cmp4(std::vector<double> a, std::vector<double> b);
-
-void remove_duplicate_vertex(std::vector<mfem::Vertex> &all_point);
-
 double GetCurrentMemoryUsage();
-
-bool equalDM(DenseMatrix a, DenseMatrix b);
-bool equalVector(Vector a, Vector b);
 
 #endif

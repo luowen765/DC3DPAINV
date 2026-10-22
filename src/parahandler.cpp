@@ -58,7 +58,7 @@ void ParaHandler::skip_comments(std::istream &in,
 void ParaHandler::read_model_info(char *model_file) {
   std::ifstream in_stream(model_file);
   myassert(in_stream.good());
-  int para_lines = 45;
+  int para_lines = 40;
   std::vector<std::string> para_str_vec;
   skip_comments(in_stream, para_str_vec);
   myassert(para_str_vec.size() == para_lines);
@@ -188,106 +188,80 @@ void ParaHandler::read_model_info(char *model_file) {
   myassert(invMesh_keep > 0);
 
   ss << para_str_vec[24];
-  ss >> inv_amr_type;
+  ss >> inv_amr_ratio;
   ss.clear();
-  myassert(inv_amr_type == 0 || inv_amr_type == 1 || inv_amr_type == 2);
 
   ss << para_str_vec[25];
-  ss >> inv_amr_ratio_model;
-  ss.clear();
-
-  ss << para_str_vec[26];
-  ss >> inv_amr_ratio_data;
-  ss.clear();
-
-  ss << para_str_vec[27];
-  ss >> h_to_surface;
-  ss.clear();
-  myassert(h_to_surface >= 0);
-
-  ss << para_str_vec[28];
   ss >> model_parameters_file;
   ss.clear();
 
-  ss << para_str_vec[29];
+  ss << para_str_vec[26];
   ss >> mesh_file;
   ss.clear();
 
-  ss << para_str_vec[30];
+  ss << para_str_vec[27];
   ss >> relative_misfit_for_up;
   ss.clear();
   myassert(relative_misfit_for_up > 0 && relative_misfit_for_up < 1);
 
-  ss << para_str_vec[31];
+  ss << para_str_vec[28];
   ss >> relative_misfit_for_down;
   ss.clear();
   myassert(relative_misfit_for_down > 0 && relative_misfit_for_down < 1);
 
-  ss << para_str_vec[32];
+  ss << para_str_vec[29];
   ss >> N_refine_receivers_local_for;
   ss.clear();
   myassert(N_refine_receivers_local_for >= 0);
 
-  ss << para_str_vec[33];
+  ss << para_str_vec[30];
   ss >> max_amr;
   ss.clear();
   myassert(max_amr >= 0);
 
-  ss << para_str_vec[34];
+  ss << para_str_vec[31];
   ss >> amr_type;
   ss.clear();
   myassert(amr_type == 0 || amr_type == 1);
 
-  ss << para_str_vec[35];
+  ss << para_str_vec[32];
   ss >> amr_ratio;
   ss.clear();
   myassert(amr_ratio > 0);
 
-  ss << para_str_vec[36];
+  ss << para_str_vec[33];
   ss >> max_dofs;
   ss.clear();
   myassert(max_dofs >= 10);
 
-  ss << para_str_vec[37];
+  ss << para_str_vec[34];
   ss >> linear_solver;
   ss.clear();
-  myassert(linear_solver == "amg" || linear_solver == "ilu" ||
-           linear_solver == "mumps");
+  myassert(linear_solver == "amg" || linear_solver == "mumps");
 
-  ss << para_str_vec[38];
-  ss >> find_points_by;
-  ss.clear();
-  myassert(find_points_by == "FindPoints");
-
-  ss << para_str_vec[39];
+  ss << para_str_vec[35];
   ss >> pcg_maxit;
   ss.clear();
   myassert(pcg_maxit > 5);
 
-  ss << para_str_vec[40];
+  ss << para_str_vec[36];
   ss >> pcg_primal_tol;
   ss.clear();
   myassert(pcg_primal_tol > 0 && pcg_primal_tol < 1);
 
-  ss << para_str_vec[41];
+  ss << para_str_vec[37];
   ss >> pcg_dual_tol;
   ss.clear();
   myassert(pcg_dual_tol > 0 && pcg_dual_tol < 1 &&
            pcg_dual_tol >= pcg_primal_tol);
 
-  ss << para_str_vec[42];
-  ss >> error_esti_way;
-  ss.clear();
-  myassert(error_esti_way == "jn" || error_esti_way == "zz_mfem" ||
-           error_esti_way == "zz_patch" || error_esti_way == "jn_zz");
-
-  ss << para_str_vec[43];
+  ss << para_str_vec[38];
   ss >> integration_order;
   ss.clear();
   myassert(integration_order == 1 || integration_order == 2 ||
            integration_order == 3);
 
-  ss << para_str_vec[44];
+  ss << para_str_vec[39];
   ss >> n_group;
   ss.clear();
   myassert(n_group > 0);
@@ -800,11 +774,9 @@ void ParaHandler::refine_locally(std::shared_ptr<Mesh> mesh,
                                  std::vector<Point_double> &points,
                                  int refine_level) {
   if (refine_level <= 0)
-
     return;
 
   std::set<Point_double> temp_P;
-
   for (int i = 0; i < points.size(); i++) {
     temp_P.insert(points[i]);
   }
@@ -858,71 +830,34 @@ void ParaHandler::refine_locally(std::shared_ptr<Mesh> mesh,
 
 void ParaHandler::find_point_tets(
 
-    std::shared_ptr<ParMesh> pmesh, const std::vector<Vector> &points_,
-    Array<int> &find_tets, const std::string find_points_by) {
-
-  std::vector<Vertex> points;
-  for (int i = 0; i < points_.size(); i++) {
-    for (int j = 0; j < 3; j++) {
-      points[i](j) = points_[i](j);
-    }
-  }
-
-  find_point_tets(pmesh, points, find_tets, find_points_by);
-}
-
-void ParaHandler::find_point_tets(
-
     std::shared_ptr<ParMesh> pmesh, const std::vector<Vertex> &points,
-    Array<int> &find_tets, const std::string find_points_by) {
+    Array<int> &find_tets) {
 
   find_tets.DeleteAll();
 
   int npts = points.size();
-  if (find_points_by == "FindPoints") {
-
-    DenseMatrix point_mat(3, npts);
-    for (int j = 0; j < npts; j++) {
-      point_mat(0, j) = points[j](0);
-      point_mat(1, j) = points[j](1);
-      point_mat(2, j) = points[j](2);
-    }
-    Array<int> temp_tet_id;
-    Array<IntegrationPoint> ips;
-    pmesh->FindPoints(point_mat, temp_tet_id, ips);
-
-    for (int j = 0; j < temp_tet_id.Size(); j++) {
-      int tid = temp_tet_id[j];
-      if (tid == -1) {
-        std::cout
-            << "measurements point not found! please check your parameters";
-
-      } else {
-
-        find_tets.Append(tid);
-      }
-    }
-    myassert(find_tets.Size() == npts);
-  } else if (find_points_by == "gslib") {
-
-    throw std::runtime_error("please check gslib installed!");
-
-  } else {
-    throw std::runtime_error("please check correct way to find points!");
+  DenseMatrix point_mat(3, npts);
+  for (int j = 0; j < npts; j++) {
+    point_mat(0, j) = points[j](0);
+    point_mat(1, j) = points[j](1);
+    point_mat(2, j) = points[j](2);
   }
+  Array<int> temp_tet_id;
+  Array<IntegrationPoint> ips;
+  pmesh->FindPoints(point_mat, temp_tet_id, ips);
 
-}
+  for (int j = 0; j < temp_tet_id.Size(); j++) {
+    int tid = temp_tet_id[j];
+    if (tid == -1) {
+      std::cout
+          << "measurements point not found! please check your parameters";
 
-Vector ParaHandler::get_sites_center() {
-  Vector gpoint(3);
-  gpoint = 0.0;
-  for (int i = 0; i < sites.size(); i++) {
-    for (int j = 0; j < 3; j++) {
-      gpoint[j] += sites[i](j);
+    } else {
+
+      find_tets.Append(tid);
     }
   }
-  gpoint /= sites.size();
-  return gpoint;
+  myassert(find_tets.Size() == npts);
 }
 
 void ParaHandler::dual_parallel_resource_allocation(int world_rank,
