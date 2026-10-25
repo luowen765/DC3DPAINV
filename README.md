@@ -45,14 +45,14 @@ configuration is:
 
 MFEM must provide MPI, METIS 5, hypre, and MUMPS support. The MUMPS interface
 is compiled unconditionally, so `MFEM_USE_MUMPS=YES` is required even when
-`linear_solver = amg`; GN additionally requires the MKL CPARDISO interface.
-The tested build enables all of these:
+`linear_solver = amg`; GN additionally requires the MKL PARDISO interface used
+by Eigen. The tested build enables all of these:
 
 ```text
 MFEM_USE_MPI          = YES
 MFEM_USE_METIS_5      = YES
 MFEM_USE_MUMPS        = YES
-MFEM_USE_MKL_CPARDISO = YES
+MFEM_USE_MKL_PARDISO  = YES
 ```
 
 MFEM, hypre, METIS, Eigen, and MUMPS are available at:
