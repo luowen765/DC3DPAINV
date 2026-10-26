@@ -288,8 +288,10 @@ pyGIMLi (Apache-2.0). The mining-tunnel field data are described by Günther
 
 - Lewen Qiu, Research Institute of Exploration and Development, PetroChina
   Xinjiang Oilfield Company, Karamay, China. E-mail: luo_wen@csu.edu.cn
-- Huang Chen, School of Geosciences and Info-Physics, Central South University,
-  Changsha, China. E-mail: Huang-chen@outlook.com
+- Huang Chen, School of Resources and Safety Engineering, Chongqing University,
+  Chongqing 400044, China; State Key Laboratory of Coal Mine Disaster Dynamics
+  and Control, Chongqing University, Chongqing 400044, China.
+  E-mail: chenhuang@cqu.edu.cn
 
 The forward-modeling modules retain the contributions of Zhengguang Liu,
 Hongbo Yao, and Jingtian Tang, as noted in the source headers.
