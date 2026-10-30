@@ -121,13 +121,13 @@ mpirun -np 4 ../DC3DInv inversion_parameters.txt
 
 | Directory | Paper section | Case | Processes | Reference result |
 | --- | --- | --- | --- | --- |
-| `examples/ex1/adinv` | 3.1, Figs. 3--5, Table 1 | undulating topography, adaptive-mesh L-BFGS | 16 | 296,486 → 627,684 elements, 27 iterations, 306.3 s |
+| `examples/ex1/adinv` | 3.1, Figs. 3--5, Table 2 | undulating topography, adaptive-mesh L-BFGS | 16 | 296,486 → 627,684 elements, 27 iterations, 306.3 s |
 | `examples/ex1/inv` | 3.1 | undulating topography, fixed-mesh L-BFGS with topography | 16 | 1,323,057 inversion elements, 38 iterations, 785.7 s |
 | `examples/ex1/not_consider_topo` | 3.1 | flat-surface control, fixed-mesh L-BFGS | 16 | — |
-| `examples/ex2/inv` | 3.2, Figs. 6--11, Table 2 | triaxial anisotropy, fixed-mesh L-BFGS | 32 | 248,629 elements / 745,887 unknowns, 61 iterations, 500.0 s |
+| `examples/ex2/inv` | 3.2, Figs. 6--11, Table 3 | triaxial anisotropy, fixed-mesh L-BFGS | 32 | 248,629 elements / 745,887 unknowns, 61 iterations, 500.0 s |
 | `examples/ex2/adinv` | 3.2 | triaxial anisotropy, adaptive-mesh L-BFGS | 32 | 22,469 → 62,891 elements / 188,673 unknowns, 43 iterations, 112.5 s |
 | `examples/ex2/iso` | 3.2 | isotropic control for the triaxial data | 32 | — |
-| `examples/ex3/iso` | 3.3, Figs. 12--15, Table 3 | mining-tunnel field data, isotropic GN | 4 | 10,246 → 21,528 elements, 6 updates, final RMS 1.0572, 140.2 s |
+| `examples/ex3/iso` | 3.3, Figs. 12--15, Table 4 | mining-tunnel field data, isotropic GN | 4 | 10,246 → 21,528 elements, 6 updates, final RMS 1.0572, 140.2 s |
 | `examples/ex3/vti` | 3.3 | mining-tunnel field data, VTI GN | 4 | — |
 | `examples/ex3/pyGIMLi_refer` | 3.3 | pyGIMLi reference result for the tunnel data | 4 | — |
 
