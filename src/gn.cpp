@@ -1,7 +1,9 @@
 /*
- * @Description: Gauss-Newton model update and PCG solution of the normal equations.
- * @Author: Lewen Qiu, Huang Chen
+ * @File: src/gn.cpp
+ * @Description: Gauss-Newton model update and PCG solution of the normal
+ *   equations.
  * @Date: 2026-10-21
+ * @License: BSD-3-Clause (see LICENSE)
  */
 
 // Copyright (c) 2026, Lewen Qiu and Huang Chen.

@@ -1,14 +1,12 @@
 /*
- * @Description: Basic types, geometry utilities, and assertion helpers shared by
- *   the DC3DPAINV modules.
- * @Author: Lewen Qiu (original DC3DPAFEM module); adapted for DC3DPAINV by
- *   Lewen Qiu and Huang Chen
+ * @File: src/em.h
+ * @Description: Basic types, geometry utilities, and assertion helpers shared
+ *   by the DC3DPAINV modules.
  * @Date: 2026-10-21
+ * @License: BSD-3-Clause (see LICENSE)
  */
 
 // Copyright (c) 2026, Lewen Qiu and Huang Chen.
-// Portions copyright (c) 2023, Lewen Qiu, Zhengguang Liu,
-// Hongbo Yao, and Jingtian Tang.
 // This file is part of the DC3DPAINV program. DC3DPAINV is free
 // software with source code available at
 // https://github.com/luowen765/DC3DPAINV. You can redistribute it

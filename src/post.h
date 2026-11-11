@@ -1,14 +1,12 @@
 /*
- * @Description: Declaration of post-processing utilities for potentials and apparent
- *   resistivities.
- * @Author: Lewen Qiu, Zhengguang Liu, Hongbo Yao (original DC3DPAFEM module);
- *   adapted for DC3DPAINV by Lewen Qiu and Huang Chen
+ * @File: src/post.h
+ * @Description: Declaration of post-processing utilities for potentials and
+ *   apparent resistivities.
  * @Date: 2026-10-21
+ * @License: BSD-3-Clause (see LICENSE)
  */
 
 // Copyright (c) 2026, Lewen Qiu and Huang Chen.
-// Portions copyright (c) 2023, Lewen Qiu, Zhengguang Liu,
-// Hongbo Yao, and Jingtian Tang.
 // This file is part of the DC3DPAINV program. DC3DPAINV is free
 // software with source code available at
 // https://github.com/luowen765/DC3DPAINV. You can redistribute it

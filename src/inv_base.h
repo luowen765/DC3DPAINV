@@ -1,8 +1,9 @@
 /*
- * @Description: Declaration of the base class that implements the shared inversion
- *   workflow.
- * @Author: Lewen Qiu, Huang Chen
+ * @File: src/inv_base.h
+ * @Description: Declaration of the base class that implements the shared
+ *   inversion workflow.
  * @Date: 2026-10-21
+ * @License: BSD-3-Clause (see LICENSE)
  */
 
 // Copyright (c) 2026, Lewen Qiu and Huang Chen.

@@ -1,7 +1,8 @@
 /*
+ * @File: src/gn.h
  * @Description: Declaration of the Gauss-Newton optimization module.
- * @Author: Lewen Qiu, Huang Chen
  * @Date: 2026-10-21
+ * @License: BSD-3-Clause (see LICENSE)
  */
 
 // Copyright (c) 2026, Lewen Qiu and Huang Chen.

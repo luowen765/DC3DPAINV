@@ -1,7 +1,8 @@
 /*
+ * @File: src/lbfgs.h
  * @Description: Declaration of the limited-memory BFGS optimization module.
- * @Author: Lewen Qiu, Huang Chen
  * @Date: 2026-10-21
+ * @License: BSD-3-Clause (see LICENSE)
  */
 
 // Copyright (c) 2026, Lewen Qiu and Huang Chen.

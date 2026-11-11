@@ -1,8 +1,10 @@
 /*
- * @Description: Implementation of the shared inversion workflow: model transformation,
- *   forward and adjoint calls, line search, mesh adaptivity, and output.
- * @Author: Lewen Qiu, Huang Chen
+ * @File: src/inv_base.cpp
+ * @Description: Implementation of the shared inversion workflow: model
+ *   transformation, forward and adjoint calls, line search, mesh adaptivity,
+ *   and output.
  * @Date: 2026-10-21
+ * @License: BSD-3-Clause (see LICENSE)
  */
 
 // Copyright (c) 2026, Lewen Qiu and Huang Chen.
