@@ -104,7 +104,7 @@ NP=4 bash run.sh
 
 `run.sh` builds the executable in the parent directory and starts
 `mpirun -np ${NP} ../DC3DInv inversion_parameters.txt`. It defaults to the
-process count used for that case in the paper, as listed in
+process count used for the reference run of that case, as listed in
 [Examples](#examples); set `NP` explicitly on a different machine:
 
 ```bash
@@ -121,21 +121,24 @@ mpirun -np 4 ../DC3DInv inversion_parameters.txt
 
 | Directory | Paper section | Case | Processes | Reference result |
 | --- | --- | --- | --- | --- |
-| `examples/ex1/adinv` | 3.1, Figs. 3--5, Table 2 | undulating topography, adaptive-mesh L-BFGS | 16 | 296,486 → 627,684 elements, 27 iterations, 306.3 s |
+| `examples/ex1/adinv` | 3.1, Figs. 3--5, Table 2 | undulating topography, adaptive-mesh L-BFGS | 16 | 296,486 elements → 627,684 unknowns, 27 iterations, 306.3 s |
 | `examples/ex1/inv` | 3.1 | undulating topography, fixed-mesh L-BFGS with topography | 16 | 1,323,057 inversion elements, 38 iterations, 785.7 s |
-| `examples/ex1/not_consider_topo` | 3.1 | flat-surface control, fixed-mesh L-BFGS | 16 | — |
+| `examples/ex1/not_consider_topo` | 3.1 | flat-surface control, fixed-mesh L-BFGS | 64 | — |
 | `examples/ex2/inv` | 3.2, Figs. 6--11, Table 3 | triaxial anisotropy, fixed-mesh L-BFGS | 32 | 248,629 elements / 745,887 unknowns, 61 iterations, 500.0 s |
 | `examples/ex2/adinv` | 3.2 | triaxial anisotropy, adaptive-mesh L-BFGS | 32 | 22,469 → 62,891 elements / 188,673 unknowns, 43 iterations, 112.5 s |
 | `examples/ex2/iso` | 3.2 | isotropic control for the triaxial data | 32 | — |
-| `examples/ex3/iso` | 3.3, Figs. 12--15, Table 4 | mining-tunnel field data, isotropic GN | 4 | 10,246 → 21,528 elements, 6 updates, final RMS 1.0572, 140.2 s |
+| `examples/ex3/iso` | 3.3, Figs. 12--15, Table 4 | mining-tunnel field data, isotropic GN | 4 | 10,246 → 21,528 elements (21,528 unknowns), 6 updates, final RMS 1.0572, 140.2 s |
 | `examples/ex3/vti` | 3.3 | mining-tunnel field data, VTI GN | 4 | — |
 | `examples/ex3/pyGIMLi_refer` | 3.3 | pyGIMLi reference result for the tunnel data | 4 | — |
 
 The "Reference result" column lists the outcome reported in the manuscript:
-inversion elements, forward unknowns where quoted, iterations, and wall-clock
+inversion elements, inversion unknowns where quoted, iterations, and wall-clock
 time. The timings were obtained on the platform used for the manuscript and
-are indicative only. The first two examples require an HPC node, whereas the
-field-data example runs on a laptop with four MPI processes.
+are indicative only. The synthetic examples require HPC resources, whereas the
+field-data example runs on a laptop with four MPI processes. The synthetic
+reference runs used Intel Xeon Gold 6248R 3.0 GHz nodes with 48 cores and
+192 GB of memory; the field-data runs used a laptop with an Intel Core
+i7-8550U 1.80 GHz processor, 4 cores, and 16 GB of memory.
 
 Reference output files, where provided, are kept in each case directory
 (`Inversion_results/` and `run.log`). The `examples/ex3/iso` directory retains
@@ -287,7 +290,7 @@ pyGIMLi (Apache-2.0). The mining-tunnel field data are described by Günther
 ## Authors
 
 - Lewen Qiu, Research Institute of Exploration and Development, PetroChina
-  Xinjiang Oilfield Company, Karamay, China. E-mail: luo_wen@csu.edu.cn
+  Xinjiang Oilfield Company, Karamay, China. E-mail: 2212963832@qq.com
 - Huang Chen, School of Resources and Safety Engineering, Chongqing University,
   Chongqing 400044, China; State Key Laboratory of Coal Mine Disaster Dynamics
   and Control, Chongqing University, Chongqing 400044, China.
