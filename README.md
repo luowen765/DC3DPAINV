@@ -1,9 +1,9 @@
 # DC3DPAINV user guide
 
-DC3DPAINV is a parallel adaptive finite-element inversion package for 3-D direct
-current (DC) resistivity imaging with surface topography and electrical
-anisotropy. It extends the secondary virtual potential formulation of
-DC3DPAFEM to the inverse problem and provides a common framework for
+DC3DPAINV is an open-source, parallel adaptive-mesh finite-element inversion
+package for 3-D direct current (DC) resistivity imaging with complex topography
+and electrical anisotropy. It extends the secondary virtual potential
+formulation of DC3DPAFEM to inversion and provides a common framework for
 Gauss--Newton (GN) and limited-memory BFGS (L-BFGS) inversion. Forward and
 inversion meshes are decoupled: the forward mesh is refined to control
 response accuracy, while the inversion mesh is refined where the data-misfit
