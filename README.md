@@ -1,16 +1,22 @@
 # DC3DPAINV user guide
 
-DC3DPAINV is an open-source, parallel adaptive-mesh finite-element inversion
-package for 3-D direct current (DC) resistivity imaging with complex topography
-and electrical anisotropy. It extends the secondary virtual potential
-formulation of DC3DPAFEM to inversion and provides a common framework for
-Gauss--Newton (GN) and limited-memory BFGS (L-BFGS) inversion. Forward and
-inversion meshes are decoupled: the forward mesh is refined to control
-response accuracy, while the inversion mesh is refined where the data-misfit
-gradient requires additional parameters.
+DC3DPAINV is an open-source package for adaptive three-dimensional direct
+current (DC) resistivity inversion with complex topography and electrical
+anisotropy. It extends the secondary virtual potential-based unstructured
+finite-element forward modeling method of DC3DPAFEM to inversion, treating
+source singularities analytically and incorporating topographic effects
+without a separate numerical solution for the terrain-dependent background
+potential. Nested unstructured meshes decouple the forward and inversion
+discretizations: the forward mesh is refined to control response accuracy,
+while the inversion mesh is refined where the data-misfit gradient requires
+additional parameters. The package implements parallel Gauss--Newton (GN) and
+limited-memory BFGS (L-BFGS) inversion for isotropic, VTI, and triaxial
+conductivity models.
 
-The accompanying manuscript describes the method and the three numerical
-examples. If you use this code, please cite the paper.
+The accompanying manuscript, "DC3DPAINV: A Flexible Adaptive-Mesh Inversion
+Package for 3-D DC Resistivity Imaging with Topography and Electrical
+Anisotropy", describes the method and the three numerical examples. If you use
+this code, please cite the paper.
 
 The code is hosted at <https://github.com/luowen765/DC3DPAINV>.
 
@@ -117,6 +123,12 @@ The equivalent manual command is:
 mpirun -np 4 ../DC3DInv inversion_parameters.txt
 ```
 
+The inversion stops when the weighted RMS misfit reaches `stop_misfit`, when
+`max_iter` is reached, or when the relative data-misfit reduction stays below
+0.01% for four consecutive iterations. With `adInv_max_iter = 0`, the
+inversion mesh remains fixed; otherwise, it is refined at most
+`adInv_max_iter` times.
+
 ## Examples
 
 | Directory | Paper section | Case | Processes | Reference result |
@@ -162,7 +174,7 @@ line. Blank lines and text after `#` are ignored. The entry order is fixed.
 | --- | --- | --- |
 | 1 | `if_anisotropy` | 0 = isotropic, 1 = VTI, 2 = triaxial |
 | 2 | `max_iter` | maximum number of inversion iterations |
-| 3 | `N_M` | number of correction pairs stored by L-BFGS |
+| 3 | `N_M` | number of correction pairs stored by L-BFGS (8 in the examples) |
 | 4 | `N_line_search` | maximum trial steps in the inexact line search |
 | 5 | `obs_data_file` | observation data file |
 | 6 | `inv_data_type` | 0 = potential difference (dU/I), 1 = apparent resistivity |
@@ -290,11 +302,14 @@ pyGIMLi (Apache-2.0). The mining-tunnel field data are described by Günther
 ## Authors
 
 - Lewen Qiu, Research Institute of Exploration and Development, PetroChina
-  Xinjiang Oilfield Company, Karamay, China. E-mail: 2212963832@qq.com
-- Huang Chen, School of Resources and Safety Engineering, Chongqing University,
-  Chongqing 400044, China; State Key Laboratory of Coal Mine Disaster Dynamics
-  and Control, Chongqing University, Chongqing 400044, China.
-  E-mail: chenhuang@cqu.edu.cn
+  Xinjiang Oilfield Company, Karamay 834000, Xinjiang, China.
+  E-mail: luowen765@gmail.com
+- Huang Chen (corresponding author), School of Resources and Safety
+  Engineering, Chongqing University, Chongqing 400044, China; State Key
+  Laboratory of Coal Mine Disaster Dynamics and Control, Chongqing University,
+  Chongqing 400044, China. E-mail: chenhuang@cqu.edu.cn
+- Jingtian Tang, School of Geosciences and Info-Physics, Central South
+  University, Changsha 410083, Hunan, China. E-mail: jttang@csu.edu.cn
 
-The forward-modeling modules retain the contributions of Zhengguang Liu,
-Hongbo Yao, and Jingtian Tang, as noted in the source headers.
+The forward-modeling modules retain the contributions of Zhengguang Liu and
+Hongbo Yao, as noted in the source headers and `LICENSE`.
